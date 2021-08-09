@@ -72,6 +72,65 @@ class Admin extends CI_Controller {
 		$this->load->view('tambah_user_ereport',$data);
 	}
 
+	public function insert_user()
+	{
+		
+			$data = array(
+			'nama_user' => $this->input->post('nama_user'),
+			'username' => $this->input->post('username'),
+			'password' => md5($this->input->post('password')),
+			'role' => $this->input->post('role')
+		);
+
+		$cek_jumlah_user = $this->M_ppdb->cek_jumlah_user($this->input->post('username'),md5($this->input->post('password')))->num_rows();
+
+		if ($cek_jumlah_user>0) {
+			$this->load->view('gagal_tambah_user_ereport');
+		}else{
+			$this->M_ppdb->tambah_data_user($data,'user');
+			$this->load->view('berhasil_tambah_pengguna_ereport');
+		}
+	
+			
+	}
+
+	public function edit_user($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_user'] = $this->M_ppdb->edit_user($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_user_ereport',$data);
+	}
+
+	public function update_user(){
+
+		$password_lama = $this->input->post('password_lama');
+		$password_baru = $this->input->post('password_baru');
+
+		if ($password_baru=="") {
+			$password = $password_lama;
+		}else {
+			$password = md5($password_baru);
+		}
+
+		$data = array(
+			'nama_user' => $this->input->post('nama_user'),
+			'username' => $this->input->post('username'),
+			'password' => $password,
+			'role' => $this->input->post('role')
+		);
+		
+	
+		$where = array(
+			'id_user' => $this->input->post('id_user')
+		);
+
+	
+		$this->M_ppdb->update_user($where,$data,'user');
+		$this->load->view('berhasil_ubah_user_ereport');
+	}
+
+
 
 	// public function registrasi()
 	// {

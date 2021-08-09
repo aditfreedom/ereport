@@ -29,10 +29,28 @@ class M_ppdb extends CI_Model
         return $this->db->query("SELECT * FROM user LEFT JOIN role ON user.role = role.id");
     }
 
+    function cek_jumlah_user($username, $password)
+    {
+        return $this->db->query("SELECT * FROM user where username='$username' AND password='$password'");
+    }
 
+    public function tambah_data_user($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
 
+    public function edit_user($id)
+    {
+        $query = $this->db->query("SELECT * FROM user LEFT JOIN role ON user.role = role.id WHERE user.id_user='$id'");
+        return $query;
+    }
 
-
+    public function update_user($where, $data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
 
 
 
@@ -275,11 +293,7 @@ class M_ppdb extends CI_Model
         $this->db->delete('pengguna', $id);
     }
 
-    public function editkuota($id)
-    {
-        return $this->db->get_where('kuota', $id);
-    }
-
+   
     public function edit_bpp($id)
     {
         return $this->db->get_where('data', $id);

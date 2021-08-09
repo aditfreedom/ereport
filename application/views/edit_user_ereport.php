@@ -1,22 +1,28 @@
 <!-- page content -->
 <div class="right_col" role="main">
           <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH PENGGUNA</b></a><br><br>
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>UBAH PENGGUNA</b></a><br><br>
     
-    <form action="<?=base_url('admin/insert_user')?>" method="post">
+    <form action="<?=base_url('admin/update_user')?>" method="post">
     <div class="row">
     <div class="col">
     <div class="container">
-        
+    <?php foreach ($edit_user as $data) : ?>
+
+      <div class="form-group" hidden>
+        <label for=""><b>ID USER: </b></label>
+        <input type="text" name="id_user" class="form-control" maxlength="50" value="<?=$data->id_user?>" required>
+        </div>  
 
         <div class="form-group">
         <label for=""><b>NAMA PENGGUNA: </b></label>
-        <input type="text" name="nama_user" class="form-control" maxlength="50" placeholder="Nama Pengguna" required>
+        <input type="text" name="nama_user" class="form-control" maxlength="50" value="<?=$data->nama_user?>" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>ROLE :</b></label>
         <select class="form-control"  name="role">
+        <option selected hidden value="<?=$data->id?>"><?=$data->role?></option>
         <option value="0">Admin</option>
         <option value="1">Kepala Sekolah</option>
         <option value="2">Guru Bidang Studi</option>
@@ -33,20 +39,26 @@
         <div class="container">
         <div class="form-group">
         <label for=""><b>USERNAME</b></label>
-        <input type="text" name="username" class="form-control" placeholder="Username" maxlength="15" required>
+        <input type="text" name="username" class="form-control" placeholder="Username" value="<?=$data->username?>" maxlength="15" required>
+        </div>  
+
+        <div class="form-group" hidden>
+        <label for=""><b>PASSWORD</b></label>
+        <input type="password" name="password_lama" class="form-control" maxlength="20" value="<?=$data->password?>" placeholder="Password" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PASSWORD</b></label>
-        <input type="password" name="password" class="form-control" maxlength="20" placeholder="Password" required>
+        <input type="password" name="password_baru" class="form-control" maxlength="20"  placeholder="Kosongkan Bila Tidak Mengganti Password" >
         </div>  
 
        
         </div>    
         </div>
         </div>
+        <?php endforeach; ?>
 
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH PENGGUNA</button><br><br>
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">UBAH PENGGUNA</button><br><br>
         </form>
           
           

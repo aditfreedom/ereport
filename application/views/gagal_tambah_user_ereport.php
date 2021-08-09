@@ -12,13 +12,12 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'Berhasil!',
-        'Sukses Ubah Data',
-        'success'
+        'GAGAL!',
+        'USERNAME & PASSWORD SUDAH PERNAH TERDATA',
+        'error'
 ).then(function() {
-    window.location = "./data_bpp";
+    window.location = "./tambah_user";
 });
-
 }
 </script>
 

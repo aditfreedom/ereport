@@ -1,5 +1,5 @@
   <!-- sidebar menu -->
-  <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+  <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
               <div class="menu_section">
                 <ul class="nav side-menu">
                 <li><a href="<?=base_url('admin')?>"><i class="fa fa-home"></i> HOME</a></li>   

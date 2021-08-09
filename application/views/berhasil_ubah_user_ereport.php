@@ -13,11 +13,12 @@
 function jsFunction(){
     Swal.fire(
         'Berhasil!',
-        'Sukses Menambah Data',
+        'Sukses Ubah Data',
         'success'
 ).then(function() {
-    window.location = "./data_bpp";
+    window.location = "./pengguna";
 });
+
 }
 </script>
 

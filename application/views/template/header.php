@@ -28,10 +28,10 @@
     <link href="<?=base_url('gentelella')?>/build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md ">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="<?=base_url('admin')?>" class="site_title"><span>E-REPORT SMA</span></a>
