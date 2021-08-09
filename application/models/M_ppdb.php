@@ -3,18 +3,7 @@
 class M_ppdb extends CI_Model
 {
 
-    public function tampil_data_kuota($where = NULL)
-    {
-        if ($where !== NULL) {
-            $this->db->where($where);
-        }
-
-        $this->db->select('ks.*, ds.*')
-            ->from('kuota_siswa ks')
-            ->join('data_smp ds', 'ds.id_sekolah = ks.id_sekolah');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
+   
 
     //ereport projek///
 
@@ -52,7 +41,15 @@ class M_ppdb extends CI_Model
         $this->db->update($table);
     }
 
-
+    public function hapus_user($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+    
+    public function tampil_data_info()
+    {
+        return $this->db->query("SELECT * FROM info_khusus ORDER BY id_info DESC");
+    }
 
 
 
@@ -63,7 +60,18 @@ class M_ppdb extends CI_Model
 
 
 
+    public function tampil_data_kuota($where = NULL)
+    {
+        if ($where !== NULL) {
+            $this->db->where($where);
+        }
 
+        $this->db->select('ks.*, ds.*')
+            ->from('kuota_siswa ks')
+            ->join('data_smp ds', 'ds.id_sekolah = ks.id_sekolah');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
 
 

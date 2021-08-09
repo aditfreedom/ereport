@@ -130,6 +130,30 @@ class Admin extends CI_Controller {
 		$this->load->view('berhasil_ubah_user_ereport');
 	}
 
+	public function hapus_user($id){
+		$id_user =    array ('id_user' => $id);
+		$this->M_ppdb->hapus_user($id_user,'user');
+		redirect(base_url('admin/pengguna'));
+	}
+
+
+
+	public function info_khusus()
+	{
+		$data['info'] = $this->M_ppdb->tampil_data_info()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('info_khusus_ereport',$data);
+	}
+
+	public function tambah_info()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_info_ereport');
+	}
 
 
 	// public function registrasi()

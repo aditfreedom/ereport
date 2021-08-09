@@ -5,7 +5,7 @@
                 <li><a href="<?=base_url('admin')?>"><i class="fa fa-home"></i> HOME</a></li>   
                 <li><a href="<?=base_url('admin/role')?>"><i class="fa fa-sitemap"></i> ROLE</a></li>          
                 <li><a href="<?=base_url('admin/pengguna')?>"><i class="fa fa-user"></i> PENGGUNA</a></li>      
-                <li><a href="<?=base_url('info_khusus')?>"><i class="fa fa-info"></i> INFORMASI KHUSUS</a></li>                             
+                <li><a href="<?=base_url('admin/info_khusus')?>"><i class="fa fa-info"></i> INFORMASI KHUSUS</a></li>                             
                 <li><a href="<?=base_url('wali_kelas')?>"><i class="fa fa-edit"></i> WALI KELAS</a></li>                             
                 <li><a href="<?=base_url('mapel')?>"><i class="fa fa-edit"></i> GURU BIDANG STUDI</a></li>                 
            
