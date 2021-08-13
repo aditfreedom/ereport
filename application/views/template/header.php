@@ -27,11 +27,32 @@
     <!-- Custom Theme Style -->
     <link href="<?=base_url('gentelella')?>/build/css/custom.min.css" rel="stylesheet">
   </head>
+  <?php
+    if ($role=="1") {
+      $role_name="Kepala Sekolah";
+    }
+    elseif ($role=="2") {
+      $role_name="Bidang Studi";
+    }
+    elseif ($role=="3") {
+      $role_name="Wali Kelas";
+    }
+    elseif ($role=="4") {
+      $role_name="Waka. Kesiswaan";
+    }
+    elseif ($role=="5") {
+      $role_name="Waka. Kurikulum";
+    }
+    else{
+      $role_name="ADMIN";
+
+    }
+  ?>
 
   <body class="nav-md ">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col menu_fixed">
+        <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="<?=base_url('admin')?>" class="site_title"><span>E-REPORT SMA</span></a>
@@ -46,7 +67,7 @@
               </div>
               <div class="profile_info">
                 <span>Selamat Datang,</span>
-                <h2><?=$nama_user?></h2>
+                <h2><?=$nama_user?><br>(<?=$role_name?>)</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

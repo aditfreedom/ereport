@@ -155,6 +155,389 @@ class Admin extends CI_Controller {
 		$this->load->view('tambah_info_ereport');
 	}
 
+	public function insert_info()
+	{
+		
+			$data = array(
+			'judul' => $this->input->post('judul'),
+			'info' => $this->input->post('info'),
+			'tanggal_terbit' => $this->input->post('tanggal_terbit')
+		);
+
+			$this->M_ppdb->tambah_data_info($data,'info_khusus');
+			$this->load->view('berhasil_tambah_info_ereport');			
+	}
+
+	public function baca_info($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_info'] = $this->M_ppdb->baca_info($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('baca_info_ereport',$data);
+	}
+
+	public function edit_info($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_info'] = $this->M_ppdb->baca_info($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_info_ereport',$data);
+	}
+
+	public function update_info(){
+
+		$data = array(
+			'judul' => $this->input->post('judul'),
+			'info' => $this->input->post('info'),
+			'tanggal_terbit' => $this->input->post('tanggal_terbit')
+		);
+		
+	
+		$where = array(
+			'id_info' => $this->input->post('id_info')
+		);
+
+	
+
+		$this->M_ppdb->update_info($where,$data,'info_khusus');
+		$this->load->view('berhasil_ubah_info_ereport');
+	}
+
+	public function hapus_info($id){
+		$id_info =    array ('id_info' => $id);
+		$this->M_ppdb->hapus_user($id_info,'info_khusus');
+		redirect(base_url('admin/info_khusus'));
+	}
+
+	public function wali_kelas()
+	{
+		$sess_data = $this->session->userdata();
+		$role = $this->session->userdata('role');
+		$id_user = $this->session->userdata('id_user');
+		if ($role=="3") {
+			$data['walas'] = $this->M_ppdb->tampil_data_form_walas_guru($id_user)->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_walas_ereport',$data);
+		}
+		else {
+			$data['walas'] = $this->M_ppdb->tampil_data_form_walas()->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_walas_ereport',$data);
+		}
+
+
+	}
+
+
+	public function tambah_form_walas()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_form_walas_ereport');
+	}
+
+
+	public function insert_form_walas()
+	{
+		
+			$data = array(
+			'id_walas' => $this->input->post('id_walas'),
+			'kelas' => $this->input->post('kelas'),
+			'tanggal' => $this->input->post('tanggal'),
+			'waktu' => $this->input->post('waktu'),
+			'jlh_tepat_waktu' => $this->input->post('jlh_tepat_waktu'),
+			'jlh_keterlambatan' => $this->input->post('jlh_keterlambatan'),
+			'jlh_sakit' => $this->input->post('jlh_sakit'),
+			'jlh_izin' => $this->input->post('jlh_izin'),
+			'jlh_alpa' => $this->input->post('jlh_alpa'),
+			'deskripsi_base_class' => $this->input->post('deskripsi_base_class'),
+			'permasalahan_kelas' => $this->input->post('permasalahan_kelas'),
+			'follow_up' => $this->input->post('follow_up')
+		);
+
+
+			$this->M_ppdb->tambah_form_walas($data,'form_walas');
+			$this->load->view('berhasil_tambah_form_walas_ereport');
+	
+			
+	}
+
+
+	public function baca_form_walas($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_form_walas'] = $this->M_ppdb->baca_form_walas($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('baca_form_walas_ereport',$data);
+	}
+
+	public function edit_form_walas($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_form_walas'] = $this->M_ppdb->edit_form_walas($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_form_walas_ereport',$data);
+	}
+
+	public function update_form_walas(){
+
+		$data = array(
+			'id_walas' => $this->input->post('id_walas'),
+			'kelas' => $this->input->post('kelas'),
+			'tanggal' => $this->input->post('tanggal'),
+			'waktu' => $this->input->post('waktu'),
+			'jlh_tepat_waktu' => $this->input->post('jlh_tepat_waktu'),
+			'jlh_keterlambatan' => $this->input->post('jlh_keterlambatan'),
+			'jlh_sakit' => $this->input->post('jlh_sakit'),
+			'jlh_izin' => $this->input->post('jlh_izin'),
+			'jlh_alpa' => $this->input->post('jlh_alpa'),
+			'deskripsi_base_class' => $this->input->post('deskripsi_base_class'),
+			'permasalahan_kelas' => $this->input->post('permasalahan_kelas'),
+			'follow_up' => $this->input->post('follow_up')
+		);
+		
+	
+		$where = array(
+			'id_form_walas' => $this->input->post('id_form_walas')
+		);
+
+	
+
+		$this->M_ppdb->update_form_walas($where,$data,'form_walas');
+		$this->load->view('berhasil_ubah_form_walas_ereport');
+	}
+
+
+	public function hapus_form_walas($id){
+		$id_form_walas =    array ('id_form_walas' => $id);
+		$this->M_ppdb->hapus_form_walas($id_form_walas,'form_walas');
+		redirect(base_url('admin/wali_kelas'));
+	}
+
+
+	public function mapel()
+	{
+		$sess_data = $this->session->userdata();
+		$role = $this->session->userdata('role');
+		$id_user = $this->session->userdata('id_user');
+		if ($role=="2") {
+			$data['mapel'] = $this->M_ppdb->tampil_data_form_mapel_guru($id_user)->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_mapel_ereport',$data);
+		}
+		else {
+			$data['mapel'] = $this->M_ppdb->tampil_data_form_mapel()->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_mapel_ereport',$data);
+		}
+
+	}
+
+	public function tambah_form_mapel()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_form_mapel_ereport');
+	}
+
+	public function insert_form_mapel()
+	{
+		
+			$data = array(
+			'id_guru_mapel' => $this->input->post('id_guru_mapel'),
+			'kelas' => $this->input->post('kelas'),
+			'mapel' => $this->input->post('mapel'),
+			'deskripsi_akademik' => $this->input->post('deskripsi_akademik'),
+			'deskripsi_sikap' => $this->input->post('deskripsi_sikap')
+		);
+
+
+			$this->M_ppdb->tambah_form_mapel($data,'form_mapel');
+			$this->load->view('berhasil_tambah_form_mapel_ereport');
+	}
+
+	public function baca_form_mapel($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_form_mapel'] = $this->M_ppdb->baca_form_mapel($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('baca_form_mapel_ereport',$data);
+	}
+
+	public function edit_form_mapel($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_form_mapel'] = $this->M_ppdb->edit_form_mapel($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_form_mapel_ereport',$data);
+	}
+
+	public function update_form_mapel(){
+
+		$data = array(
+			'id_guru_mapel' => $this->input->post('id_guru_mapel'),
+			'kelas' => $this->input->post('kelas'),
+			'mapel' => $this->input->post('mapel'),
+			'deskripsi_akademik' => $this->input->post('deskripsi_akademik'),
+			'deskripsi_sikap' => $this->input->post('deskripsi_sikap')
+		);
+		
+	
+		$where = array(
+			'id_form_mapel' => $this->input->post('id_form_mapel')
+		);
+
+	
+
+		$this->M_ppdb->update_form_mapel($where,$data,'form_mapel');
+		$this->load->view('berhasil_ubah_form_mapel_ereport');
+	}
+
+
+	public function hapus_form_mapel($id){
+		$id_form_mapel =    array ('id_form_mapel' => $id);
+		$this->M_ppdb->hapus_form_mapel($id_form_mapel,'form_mapel');
+		redirect(base_url('admin/mapel'));
+	}
+
+	public function wakasis()
+	{
+		$data['wakasis'] = $this->M_ppdb->tampil_data_wakasis()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('wakasis_ereport',$data);
+	}
+
+	public function tambah_wakasis()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_wakasis_ereport');
+	}
+
+	public function insert_wakasis()
+	{
+		
+			$data = array(
+			'id_wakasis' => $this->input->post('id_wakasis'),
+			'nama_siswa' => $this->input->post('nama_siswa'),
+			'tanggal_pelanggaran' => $this->input->post('tanggal_pelanggaran'),
+			'deskripsi_pelanggaran' => $this->input->post('deskripsi_pelanggaran'),
+			'tindakan' => $this->input->post('tindakan')
+		);
+
+
+			$this->M_ppdb->tambah_wakasis($data,'wakasis');
+			$this->load->view('berhasil_tambah_wakasis_ereport');
+	}
+
+	public function baca_wakasis($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_wakasis'] = $this->M_ppdb->baca_wakasis($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('baca_wakasis_ereport',$data);
+	}
+
+	public function edit_wakasis($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_wakasis'] = $this->M_ppdb->edit_wakasis($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_wakasis_ereport',$data);
+	}
+
+
+	public function update_wakasis(){
+
+		$data = array(
+			'id_wakasis' => $this->input->post('id_wakasis'),
+			'nama_siswa' => $this->input->post('nama_siswa'),
+			'tanggal_pelanggaran' => $this->input->post('tanggal_pelanggaran'),
+			'deskripsi_pelanggaran' => $this->input->post('deskripsi_pelanggaran'),
+			'tindakan' => $this->input->post('tindakan')
+		);
+		
+	
+		$where = array(
+			'id_form_wakasis' => $this->input->post('id_form_wakasis')
+		);
+
+	
+
+		$this->M_ppdb->update_wakasis($where,$data,'wakasis');
+		$this->load->view('berhasil_ubah_wakasis_ereport');
+	}
+
+	public function hapus_wakasis($id){
+		$id_form_wakasis =    array ('id_form_wakasis' => $id);
+		$this->M_ppdb->hapus_wakasis($id_form_wakasis,'wakasis');
+		redirect(base_url('admin/wakasis'));
+	}
+
+	public function wakakur_roster()
+	{
+		$data['wakakur_roster'] = $this->M_ppdb->tampil_data_wakakur_roster()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('wakakur_roster_ereport',$data);
+	}
+
+	public function tambah_wakakur_roster()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_wakakur_roster_ereport');
+	}
+
+	public function insert_wakakur_roster()
+	{
+		$file_roster              = $_FILES['file_roster']['name'];
+
+		$config['upload_path']          = 'file/roster/';
+        $config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+    
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if (! $this->upload->do_upload('file_roster')) {
+            $this->load->view('error_upload_ereport');
+        }else{
+            $file_roster2=$this->upload->data('file_name');
+        }
+		
+
+
+			$data = array(
+			'tahun_ajaran' => $this->input->post('tahun_ajaran'),
+			'semester' => $this->input->post('semester'),
+			'file_roster' => $file_roster2
+		);
+
+			$this->M_ppdb->tambah_wakakur_roster($data,'wakakur_roster');
+			$this->load->view('berhasil_tambah_wakakur_roster_ereport');
+	}
+
+	public function hapus_wakakur_roster($id){
+		$id_roster =    array ('id_roster' => $id);
+		$this->M_ppdb->hapus_wakasis($id_roster,'wakakur_roster');
+		redirect(base_url('admin/wakakur_roster'));
+	}
+
+
 
 	// public function registrasi()
 	// {

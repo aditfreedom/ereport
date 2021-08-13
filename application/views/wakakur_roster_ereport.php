@@ -1,41 +1,58 @@
 <!-- page content -->
 <div class="right_col" role="main">
-          <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH INFORMASI KHUSUS</b></a><br><br>
-    
-    <form action="<?=base_url('admin/insert_info')?>" method="post">
-    <div class="row">
-    <div class="col">
-    <div class="container">
-        
+<?php
+  $role=$this->session->userdata('role');
+  $hidden_kepsek="";
+  $hidden_mapel="";
+  $hidden_walas="";
+  $hidden_wakasis="";
+  if ($role=="1") {
+    $hidden_kepsek="hidden";
+  }
+  if ($role=="2") {
+    $hidden_mapel="hidden";
+  }
+  if ($role=="3") {
+    $hidden_walas="hidden";
+  }
+  if ($role=="4") {
+    $hidden_wakasiss="hidden";
+  }
+  ?>
+          <div class="">
+          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>DAFTAR PELAJARAN</b></a><br><br>
+            <p align="left" <?=$hidden_kepsek?> <?=$hidden_mapel?> <?=$hidden_walas?> <?=$hidden_wakasis?>>
+              <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_wakakur_roster')?>">TAMBAH ROSTER</a>
+            </p>
 
-        <div class="form-group">
-        <label for=""><b>JUDUL INFORMASI : </b></label>
-        <input type="text" name="judul" class="form-control" maxlength="50" placeholder="Judul Informasi" required>
-        </div>  
-        <div class="form-group">
-        <label for=""><b>TANGGAL TERBIT : </b></label>
-        <input type="date" name="tanggal_terbit" class="form-control" maxlength="50" placeholder="Nama Pengguna" required>
-        </div>  
+            <table class="table table-bordered table-stripped" id="example">
+                <thead class="text-center">
+                  <tr>
+                  <th scope="col">NO</th>
+                    <th scope="col">TAHUN PELAJARAN</th>
+                    <th scope="col">SEMESTER</th>
+                    <th scope="col">AKSI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 1;
+                  foreach ($wakakur_roster as $data) : ?>
+                    <tr class="nomor text-center">
+                    <td scope="row"><?php echo $i; ?></td>
+                      <td scope="row"><b><?php echo $data->tahun_ajaran; ?></b></td>
+                      <td scope="row"><?php echo $data->semester; ?></td>
+                     <td>
+                     <a href="<?=base_url('file/roster/').$data->file_roster?>" class="btn btn-sm btn-success"><b>UNDUH ROSTER</u></a>
+                     <a <?=$hidden_wakasis?> <?=$hidden_kepsek?> <?=$hidden_mapel?> <?=$hidden_walas?> href="<?=base_url('admin/hapus_wakakur_roster/').$data->id_roster?>" class="btn btn-sm btn-danger"><b>HAPUS ROSTER</u></a>
+                      </td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
-        <div class="form-group">
-        <label for=""><b>ISI : </b></label>
-        <textarea name="info" cols="30" maxlength="950"  rows="10" class="form-control" placeholder="Isi Deskripsi, Diakhiri Dengan Nama Kepsek"></textarea>
-        </div>  
-
-        </div>    
-        </div>
-  
-        </div>
-        </div>
-
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">PUBLSH INFORMASI KHUSUS</button><br><br>
-        </form>
-          
-          
           </div>
    
-
                   </div>
                 </div>
               </div>

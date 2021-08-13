@@ -52,7 +52,7 @@ class Hal extends CI_Controller {
  
                 //  redirect(base_url('home'));
 
-                if ($sess_data['role'] == "0" || $sess_data['role'] == "1"){
+                if ($sess_data['role'] == "0" || $sess_data['role'] == "1" || $sess_data['role'] == "2" ||$sess_data['role'] == "3" || $sess_data['role'] == "4" || $sess_data['role'] == "5"){
                     $this->session->set_userdata($sess_data); 
                     redirect(base_url('admin')); 
                  }

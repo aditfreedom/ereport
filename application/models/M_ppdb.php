@@ -51,6 +51,157 @@ class M_ppdb extends CI_Model
         return $this->db->query("SELECT * FROM info_khusus ORDER BY id_info DESC");
     }
 
+    public function tambah_data_info($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function baca_info($id)
+    {
+        $query = $this->db->query("SELECT * FROM info_khusus WHERE id_info='$id'");
+        return $query;
+    }
+
+    public function edit_info($id)
+    {
+        $query = $this->db->query("SELECT * FROM info_khusus WHERE id_info='$id'");
+        return $query;
+    }
+
+    public function update_info($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function tampil_data_form_walas()
+    {
+        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user ORDER BY id_form_walas DESC");
+    }
+
+    public function tampil_data_form_walas_guru($id)
+    {
+        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user WHERE user.id_user = '$id' ORDER BY id_form_walas DESC");
+    }
+
+    public function tambah_form_walas($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function baca_form_walas($id)
+    {
+        $query = $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user WHERE id_form_walas='$id'");
+        return $query;
+    }
+
+    public function edit_form_walas($id)
+    {
+        $query = $this->db->query("SELECT * FROM form_walas WHERE id_form_walas='$id'");
+        return $query;
+    }
+
+    public function update_form_walas($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_form_walas($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function tampil_data_form_mapel()
+    {
+        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user ORDER BY id_form_mapel DESC");
+    }
+
+    public function tampil_data_form_mapel_guru($id_user)
+    {
+        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user WHERE user.id_user='$id_user' ORDER BY id_form_mapel DESC");
+    }
+
+    public function tambah_form_mapel($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function baca_form_mapel($id)
+    {
+        $query = $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user WHERE id_form_mapel='$id'");
+        return $query;
+    }
+
+    public function edit_form_mapel($id)
+    {
+        $query = $this->db->query("SELECT * FROM form_mapel WHERE id_form_mapel='$id'");
+        return $query;
+    }
+
+    public function update_form_mapel($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_form_mapel($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function tampil_data_wakasis()
+    {
+        return $this->db->query("SELECT * FROM wakasis LEFT JOIN user ON wakasis.id_wakasis = user.id_user ORDER BY id_form_wakasis DESC");
+    }
+
+    public function tambah_wakasis($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+
+    public function baca_wakasis($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakasis LEFT JOIN user ON wakasis.id_wakasis = user.id_user WHERE id_form_wakasis='$id'");
+        return $query;
+    }
+
+    public function edit_wakasis($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakasis WHERE id_form_wakasis='$id'");
+        return $query;
+    }
+
+    public function update_wakasis($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_wakasis($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function tampil_data_wakakur_roster()
+    {
+        return $this->db->query("SELECT * FROM wakakur_roster ORDER BY id_roster DESC");
+    }
+
+    public function tambah_wakakur_roster($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function hapus_wakakur_roster($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
 
 
 

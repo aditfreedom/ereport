@@ -1,8 +1,35 @@
 <!-- page content -->
 <div class="right_col" role="main">
+<?php
+  $role=$this->session->userdata('role');
+  $hidden_kepsek="";
+  $hidden_mapel="";
+  $hidden_walas="";
+  $hidden_wakasis="";
+  $hidden_wakakur="";
+
+  if ($role=="1") {
+    $hidden_kepsek="hidden";
+  }
+  if ($role=="2") {
+    $hidden_mapel="hidden";
+  }
+  if ($role=="3") {
+    $hidden_walas="hidden";
+  }
+  if ($role=="4") {
+    $hidden_wakasis="hidden";
+  }
+  if ($role=="4") {
+    $hidden_wakasis="hidden";
+  }
+  if ($role=="5") {
+    $hidden_wakakur="hidden";
+  }
+  ?>
           <div class="">
           <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>INFORMASI KHUSUS</b></a><br><br>
-            <p align="left">
+            <p align="left" <?=$hidden_mapel?> <?=$hidden_walas?> <?=$hidden_wakakur?> <?=$hidden_wakasis?>>
               <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_info')?>">TAMBAH INFO BARU</a>
             </p>
 
@@ -22,9 +49,9 @@
                     <td scope="row"><?php echo $i; ?></td>
                       <td scope="row"><?php echo $data->judul; ?></td>
                       <td><?php echo $data->tanggal_terbit; ?></td>
-                     <td><?php echo anchor('admin/baca_info/'.$data->id_info,'<div class="btn btn-success btn-sm text-bold"><b>BACA INFO</b></div>')?>
-                       <?php echo anchor('admin/edit_info/'.$data->id_info,'<div class="btn btn-primary btn-sm"><b>EDIT INFO</b></div>')?> 
-                      <?php echo anchor('admin/hapus_info/'.$data->id_info,'<div class="btn btn-danger btn-sm text-bold"><b>HAPUS INFO</b></div>')?>
+                     <td><a  href="<?=base_url('admin/baca_info/').$data->id_info?>" class="btn btn-sm btn-success"><b>BACA INFO</u></a>
+                        <a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?> <?=$hidden_walas?> href="<?=base_url('admin/edit_info/').$data->id_info?>" class="btn btn-sm btn-primary"><b>EDIT INFO</u></a>
+                        <a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?> <?=$hidden_walas?> href="<?=base_url('admin/hapus_info/').$data->id_info?>" class="btn btn-sm btn-danger"><b>HAPUS INFO</u></a>
                     </td>
                     </tr>
                     <?php $i++; ?>

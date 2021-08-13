@@ -1,26 +1,51 @@
 <!-- page content -->
 <div class="right_col" role="main">
           <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH INFORMASI KHUSUS</b></a><br><br>
-    
-    <form action="<?=base_url('admin/insert_info')?>" method="post">
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>EDIT LAPORAN BIDANG STUDI</b></a><br><br>
+    <form action="<?=base_url('admin/update_wakasis')?>" method="post">
+
     <div class="row">
     <div class="col">
     <div class="container">
+    <?php foreach ($edit_wakasis as $data) : ?>
+
+      <div class="row">
+    <div class="col">
+    <div class="container">
         
-
-        <div class="form-group">
-        <label for=""><b>JUDUL INFORMASI : </b></label>
-        <input type="text" name="judul" class="form-control" maxlength="50" placeholder="Judul Informasi" required>
+    <div class="form-group" hidden>
+        <label for=""><b>ID FORM : </b></label>
+        <input type="text" name="id_form_wakasis" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->id_form_wakasis?>">
+        </div>  
+    <div class="form-group" hidden>
+        <label for=""><b>NAMA WALI KELAS : </b></label>
+        <input  type="text" name="id_wakasis" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->id_wakasis?>">
         </div>  
         <div class="form-group">
-        <label for=""><b>TANGGAL TERBIT : </b></label>
-        <input type="date" name="tanggal_terbit" class="form-control" maxlength="50" placeholder="Nama Pengguna" required>
+        <label for=""><b>NAMA SISWA &  KELAS: </b></label>
+        <input  type="text" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Siswa & Kelas" value="<?=$data->nama_siswa?>" required>
+        </div>  
+        <div class="form-group">
+        <label for=""><b>TANGGAL PELANGGARAN: </b></label>
+        <input  type="date" name="tanggal_pelanggaran" class="form-control" maxlength="50" placeholder="Mata Pelajaran" value="<?=$data->tanggal_pelanggaran?>" required>
         </div>  
 
-        <div class="form-group">
-        <label for=""><b>ISI : </b></label>
-        <textarea name="info" cols="30" maxlength="950"  rows="10" class="form-control" placeholder="Isi Deskripsi, Diakhiri Dengan Nama Kepsek"></textarea>
+          <hr>
+          <h3>DESKRIPSI PELANGARAN</h3>
+          <hr>
+
+          <div class="form-group">
+          <label for=""><b>DESKRIPSI JENIS PELANGGARAN : </b></label>
+          <textarea  required name="deskripsi_pelanggaran" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Jenis Pelanggaran"><?=$data->deskripsi_pelanggaran?></textarea>
+          </div>  
+          <div class="form-group">
+          <label for=""><b>TINDAKAN YANG DILAKUKAN: </b></label>
+          <textarea  required name="tindakan" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Tindakan atau Sanksi yang diberikan"><?=$data->tindakan?></textarea>
+          </div>    
+          
+            <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">UBAH DATA LAPORAN</button><br><br>
+            <?php endforeach; ?>
+            </form>
         </div>  
 
         </div>    
@@ -29,8 +54,14 @@
         </div>
         </div>
 
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">PUBLSH INFORMASI KHUSUS</button><br><br>
-        </form>
+        </div>    
+        </div>
+  
+        </div>
+        </div>
+
+
+
           
           
           </div>

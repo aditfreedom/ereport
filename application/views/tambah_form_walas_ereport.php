@@ -1,26 +1,81 @@
 <!-- page content -->
 <div class="right_col" role="main">
           <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH INFORMASI KHUSUS</b></a><br><br>
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH LAPORAN BASE CLASS</b></a><br><br>
     
-    <form action="<?=base_url('admin/insert_info')?>" method="post">
+    <form action="<?=base_url('admin/insert_form_walas')?>" method="post">
     <div class="row">
     <div class="col">
     <div class="container">
         
-
-        <div class="form-group">
-        <label for=""><b>JUDUL INFORMASI : </b></label>
-        <input type="text" name="judul" class="form-control" maxlength="50" placeholder="Judul Informasi" required>
+        <div class="form-group" hidden>
+        <label for=""><b>ID WALAS : </b></label>
+        <input type="text" name="id_walas" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
         </div>  
         <div class="form-group">
-        <label for=""><b>TANGGAL TERBIT : </b></label>
-        <input type="date" name="tanggal_terbit" class="form-control" maxlength="50" placeholder="Nama Pengguna" required>
+        <label for=""><b>KELAS: </b></label>
+        <input type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" required>
+        </div>  
+        <div class="form-group">
+        <label for=""><b>TANGGAL BASE CLASS : </b></label>
+        <input type="date" name="tanggal" class="form-control" maxlength="50" placeholder="Tanggal" required>
         </div>  
 
         <div class="form-group">
-        <label for=""><b>ISI : </b></label>
-        <textarea name="info" cols="30" maxlength="950"  rows="10" class="form-control" placeholder="Isi Deskripsi, Diakhiri Dengan Nama Kepsek"></textarea>
+        <label for=""><b>WAKTU BASE CLASS : </b></label>
+        <input type="time" name="waktu" class="form-control" maxlength="50" placeholder="Waktu" required>
+        </div>
+
+        <hr>
+        <h3>KEHADIRAN</h3>
+        <hr>
+
+        <div class="form-group">
+          <table style="width:100%">
+            <tr>
+              <td colspan="2">        
+                <label for=""><b>JUMLAH SISWA TEPAT WAKTU : </b></label>
+                <input type="number" name="jlh_tepat_waktu" class="form-control" maxlength="50" placeholder="Jumlah" required>
+              </td>
+              <td colspan="2">        
+                <label for=""><b>JUMLAH SISWA YANG TERLAMBAT : </b></label>
+                <input type="number" name="jlh_keterlambatan" class="form-control" maxlength="50" placeholder="Jumlah" required>
+              </td>
+            </tr>
+            <tr>
+            <td>        
+                <label for=""><b>JUMLAH SISWA YANG SAKIT: </b></label>
+                <input type="number" name="jlh_sakit" class="form-control" maxlength="50" placeholder="Jumlah" required>
+              </td>
+              <td>        
+                <label for=""><b>JUMLAH SISWA YANG IZIN </b></label>
+                <input type="number" name="jlh_izin" class="form-control" maxlength="50" placeholder="Jumlah" required>
+              </td>
+              <td>        
+                <label for=""><b>JUMLAH SISWA YANG ALPA: </b></label>
+                <input type="number" name="jlh_alpa" class="form-control" maxlength="50" placeholder="Jumlah" required>
+              </td>
+              <td></td>
+            </tr>
+          </table>
+
+          <hr>
+          <h3>KONDISI KELAS</h3>
+          <hr>
+
+          <div class="form-group">
+          <label for=""><b>DESKRIPSI BASE CLASS : </b></label>
+          <textarea required name="deskripsi_base_class" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Base Class"></textarea>
+          </div>  
+          <div class="form-group">
+          <label for=""><b>PERMASALAHAN KELAS : </b></label>
+          <textarea required name="permasalahan_kelas" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Permasalahan Kelas"></textarea>
+          </div>  
+          <div class="form-group">
+          <label for=""><b>FOLLOW UP : </b></label>
+          <textarea required name="follow_up" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Follow Up"></textarea>
+          </div> 
+
         </div>  
 
         </div>    
@@ -29,7 +84,7 @@
         </div>
         </div>
 
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">PUBLSH INFORMASI KHUSUS</button><br><br>
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH LAPORAN BASE CLASS</button><br><br>
         </form>
           
           

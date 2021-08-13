@@ -1,14 +1,43 @@
 <!-- page content -->
 <div class="right_col" role="main">
-          <div class="">
+          <div class="">          
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH DAFTAR PELAJARAN</b></a><br><br>
+    
+    <?php echo form_open_multipart('admin/insert_wakakur_roster');?>
+    <div class="row">
+    <div class="col">
+    <div class="container">
+      
 
-       <h2>SISTEM INFORMASI PELAPORAN BASE CLASS SMA SUKMA BANGSA BIREUEN</h2>
+    <div class="form-group">
+        <label for=""><b>TAHUN PELAJARAN : </b></label>
+        <input type="text" name="tahun_ajaran" class="form-control" maxlength="50" placeholder="Ex : 2021 - 2022" required>
+        </div>  
+        <div class="form-group">
+        <label for=""><b>SEMESTER : </b></label>
+            <select name="semester" class="form-control" id="">
+              <option value="GANJIL">GANJIL</option>
+              <option value="GENAP">GENAP</option>
+            </select>
+        </div>  
+        <div class="form-group">
+        <label for=""><b>UPLOAD ROSTER (PDF) : </b></label>
+        <input type="file" name="file_roster" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
+        </div>  
 
-       <img src="<?=base_url('assets22/img/favicon.png')?>" class="mx-auto d-block">
+        </div>    
+        </div>
   
+        </div>
+        </div>
 
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH ROSTER</button><br><br>
+        </form>
+          
+          
+          </div>
+   
 
-               
                   </div>
                 </div>
               </div>
@@ -58,5 +87,23 @@
     
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url('gentelella')?>/build/js/custom.min.js"></script>
+
+    <script src="<?=base_url('gentelella')?>/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url('gentelella')?>/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?=base_url('gentelella')?>/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+
+
+    <script src="<?=base_url('gentelella')?>/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ordering": false,
+        "info":     false
+    } );
+} );
+
+    </script>
+
   </body>
 </html>

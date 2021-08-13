@@ -1,27 +1,38 @@
 <!-- page content -->
 <div class="right_col" role="main">
           <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH INFORMASI KHUSUS</b></a><br><br>
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH LAPORAN PELANGGARAN</b></a><br><br>
     
-    <form action="<?=base_url('admin/insert_info')?>" method="post">
+    <form action="<?=base_url('admin/insert_wakasis')?>" method="post">
     <div class="row">
     <div class="col">
     <div class="container">
         
+        <div class="form-group" hidden>
+        <label for=""><b>ID GURU : </b></label>
+        <input type="text" name="id_wakasis" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
+        </div>  
+        <div class="form-group">
+        <label for=""><b>NAMA SISWA &  KELAS: </b></label>
+        <input type="text" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Siswa & Kelas" required>
+        </div>  
+        <div class="form-group">
+        <label for=""><b>TANGGAL PELANGGARAN: </b></label>
+        <input type="date" name="tanggal_pelanggaran" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
+        </div>  
 
-        <div class="form-group">
-        <label for=""><b>JUDUL INFORMASI : </b></label>
-        <input type="text" name="judul" class="form-control" maxlength="50" placeholder="Judul Informasi" required>
-        </div>  
-        <div class="form-group">
-        <label for=""><b>TANGGAL TERBIT : </b></label>
-        <input type="date" name="tanggal_terbit" class="form-control" maxlength="50" placeholder="Nama Pengguna" required>
-        </div>  
+          <hr>
+          <h3>DESKRIPSI PELANGARAN</h3>
+          <hr>
 
-        <div class="form-group">
-        <label for=""><b>ISI : </b></label>
-        <textarea name="info" cols="30" maxlength="950"  rows="10" class="form-control" placeholder="Isi Deskripsi, Diakhiri Dengan Nama Kepsek"></textarea>
-        </div>  
+          <div class="form-group">
+          <label for=""><b>DESKRIPSI JENIS PELANGGARAN : </b></label>
+          <textarea required name="deskripsi_pelanggaran" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Jenis Pelanggaran"></textarea>
+          </div>  
+          <div class="form-group">
+          <label for=""><b>TINDAKAN YANG DILAKUKAN: </b></label>
+          <textarea required name="tindakan" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Tindakan atau Sanksi yang diberikan"></textarea>
+          </div>  
 
         </div>    
         </div>
@@ -29,7 +40,7 @@
         </div>
         </div>
 
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">PUBLSH INFORMASI KHUSUS</button><br><br>
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH LAPORAN PELANGGARAN</button><br><br>
         </form>
           
           
