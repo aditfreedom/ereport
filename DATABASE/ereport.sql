@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 08 Agu 2021 pada 18.26
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 7.4.16
+-- Host: localhost
+-- Waktu pembuatan: 15 Agu 2021 pada 16.59
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -673,6 +673,71 @@ INSERT INTO `data` (`nis`, `nama`, `kelas`, `jenjang`, `status`, `keterangan`) V
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `form_mapel`
+--
+
+CREATE TABLE `form_mapel` (
+  `id_form_mapel` int(11) NOT NULL,
+  `id_guru_mapel` int(11) NOT NULL,
+  `kelas` varchar(255) NOT NULL,
+  `mapel` varchar(255) NOT NULL,
+  `tanggal_jam_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deskripsi_akademik` varchar(1500) NOT NULL,
+  `deskripsi_sikap` varchar(1500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `form_mapel`
+--
+
+INSERT INTO `form_mapel` (`id_form_mapel`, `id_guru_mapel`, `kelas`, `mapel`, `tanggal_jam_input`, `deskripsi_akademik`, `deskripsi_sikap`) VALUES
+(5, 9, 'XII IPS OXFORD', 'MATEMATIKA', '2021-08-14 02:48:41', '-', '-');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `form_walas`
+--
+
+CREATE TABLE `form_walas` (
+  `id_form_walas` int(11) NOT NULL,
+  `id_walas` int(11) NOT NULL,
+  `kelas` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time NOT NULL,
+  `jlh_tepat_waktu` int(4) NOT NULL,
+  `jlh_keterlambatan` int(4) NOT NULL,
+  `jlh_sakit` int(4) NOT NULL,
+  `jlh_izin` int(4) NOT NULL,
+  `jlh_alpa` int(4) NOT NULL,
+  `deskripsi_base_class` varchar(1500) NOT NULL,
+  `permasalahan_kelas` varchar(1500) NOT NULL,
+  `follow_up` varchar(1500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `info_khusus`
+--
+
+CREATE TABLE `info_khusus` (
+  `id_info` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `info` varchar(1000) NOT NULL,
+  `tanggal_terbit` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `info_khusus`
+--
+
+INSERT INTO `info_khusus` (`id_info`, `judul`, `info`, `tanggal_terbit`) VALUES
+(4, 'RAPAT MANAJEMEN', 'A', '2021-08-14');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `jenjang`
 --
 
@@ -763,7 +828,46 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALUES
 (2, 'ADITYA AZIZ FIKHRI, S.Tr.Kom', '10186018', 'bc375f11307eac440f9f5f36e5e15404', 0),
-(4, 'KARTIKA HAKIM, SS., MA', 'walikelas', 'dcf52f84dbf511ee4a0abcfc18093ee4', 1);
+(5, 'Kartika Hakim, S.S., MA', '10151003', '6304847204cc728b80efa8eb1290a69a', 1),
+(6, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 5),
+(7, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 4),
+(8, 'HELMIATI, S.Pd. I', '10061019', 'c4ce452d7140ad81af7dfe82b2caac24', 3),
+(9, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wakakur_roster`
+--
+
+CREATE TABLE `wakakur_roster` (
+  `id_roster` int(11) NOT NULL,
+  `tahun_ajaran` varchar(50) NOT NULL,
+  `semester` varchar(50) NOT NULL,
+  `file_roster` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `wakakur_roster`
+--
+
+INSERT INTO `wakakur_roster` (`id_roster`, `tahun_ajaran`, `semester`, `file_roster`) VALUES
+(12, '2021 - 2022', 'GANJIL', 'roster-dikonversi4.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wakasis`
+--
+
+CREATE TABLE `wakasis` (
+  `id_form_wakasis` int(11) NOT NULL,
+  `id_wakasis` int(11) NOT NULL,
+  `nama_siswa` varchar(500) NOT NULL,
+  `tanggal_pelanggaran` date NOT NULL,
+  `deskripsi_pelanggaran` varchar(1500) NOT NULL,
+  `tindakan` varchar(1500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -774,6 +878,24 @@ INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALU
 --
 ALTER TABLE `data`
   ADD PRIMARY KEY (`nis`);
+
+--
+-- Indeks untuk tabel `form_mapel`
+--
+ALTER TABLE `form_mapel`
+  ADD PRIMARY KEY (`id_form_mapel`);
+
+--
+-- Indeks untuk tabel `form_walas`
+--
+ALTER TABLE `form_walas`
+  ADD PRIMARY KEY (`id_form_walas`);
+
+--
+-- Indeks untuk tabel `info_khusus`
+--
+ALTER TABLE `info_khusus`
+  ADD PRIMARY KEY (`id_info`);
 
 --
 -- Indeks untuk tabel `jenjang`
@@ -800,8 +922,38 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indeks untuk tabel `wakakur_roster`
+--
+ALTER TABLE `wakakur_roster`
+  ADD PRIMARY KEY (`id_roster`);
+
+--
+-- Indeks untuk tabel `wakasis`
+--
+ALTER TABLE `wakasis`
+  ADD PRIMARY KEY (`id_form_wakasis`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `form_mapel`
+--
+ALTER TABLE `form_mapel`
+  MODIFY `id_form_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `form_walas`
+--
+ALTER TABLE `form_walas`
+  MODIFY `id_form_walas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `info_khusus`
+--
+ALTER TABLE `info_khusus`
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenjang`
@@ -819,7 +971,19 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `wakakur_roster`
+--
+ALTER TABLE `wakakur_roster`
+  MODIFY `id_roster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `wakasis`
+--
+ALTER TABLE `wakasis`
+  MODIFY `id_form_wakasis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

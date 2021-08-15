@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'login.css';?>">
     <script src="https://kit.fontawesome.com/2d7830743a.js" crossorigin="anonymous"></script>
 
-    <title>LOGIN SIM BPP</title>
+    <title>LOGIN E-REPORT</title>
   </head>
   <div class="limiter">
   <body style="background-image: url(<?php echo base_url('assets22/img/bg.jpg');?>);background-size: cover;}">
@@ -37,9 +37,9 @@
               </div>
               <button class="btn btn-lg text-light btn-block text-uppercase font-weight-bold rounded-pill btn-info" type="submit"><b>Login</b></button>
               <?php echo form_close();?>
-              <div class="text-center mt-3 font-weight-bold">
+              <!-- <div class="text-center mt-3 font-weight-bold">
               <a class="text-decoration-none" href="<?=base_url()?>">KEMBALI KE HALAMAN UTAMA</a>
-              </div>
+              </div> -->
             </div>
         </div>
       </div>

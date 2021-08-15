@@ -4,7 +4,7 @@
 
        <h2>SISTEM INFORMASI PELAPORAN BASE CLASS SMA SUKMA BANGSA BIREUEN</h2>
 
-       <img src="<?=base_url('assets22/img/favicon.png')?>" class="mx-auto d-block">
+       <img src="<?=base_url('assets22/img/favicon.png')?>" class="mx-auto d-block" width="300px">
   
 
 

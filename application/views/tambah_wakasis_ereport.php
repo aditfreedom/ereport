@@ -22,7 +22,7 @@
         </div>  
 
           <hr>
-          <h3>DESKRIPSI PELANGARAN</h3>
+          <h3>DESKRIPSI PELANGGARAN</h3>
           <hr>
 
           <div class="form-group">
