@@ -20,15 +20,19 @@ class Hal extends CI_Controller {
     public function login_aksi(){
         $username = $this->input->post('username',true);
         $password = md5($this->input->post('password',true));
+        $role = $this->input->post('role',true);
+
  
         $this->form_validation->set_rules('username','Username','required');
         $this->form_validation->set_rules('password','Password','required');
+        $this->form_validation->set_rules('role','Role','required');
+
  
         if($this->form_validation->run() != FALSE){
             
  
-             $ceklogin = $this->M_ppdb->cek_login_user($username,$password)->num_rows();
-             $cekloginid = $this->M_ppdb->cek_login_user($username,$password)->result();
+             $ceklogin = $this->M_ppdb->cek_login_user($username,$password,$role)->num_rows();
+             $cekloginid = $this->M_ppdb->cek_login_user($username,$password,$role)->result();
              if ($ceklogin == 1) {
                  foreach ($cekloginid as $cek) {
                      $id_user = $cek->id_user;

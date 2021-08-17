@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 15 Agu 2021 pada 16.59
--- Versi server: 10.4.20-MariaDB
--- Versi PHP: 7.3.29
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 17 Agu 2021 pada 19.01
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -763,27 +763,10 @@ INSERT INTO `jenjang` (`id_jenjang`, `nama_jenjang`) VALUES
 
 CREATE TABLE `kelas` (
   `id_kelas` int(11) NOT NULL,
-  `id_jenjang` int(11) NOT NULL,
-  `kelas` varchar(255) NOT NULL
+  `id_tp` varchar(11) NOT NULL,
+  `nama_kelas` varchar(255) NOT NULL,
+  `id_walas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `kelas`
---
-
-INSERT INTO `kelas` (`id_kelas`, `id_jenjang`, `kelas`) VALUES
-(1, 1, 'I'),
-(2, 1, 'II'),
-(3, 1, 'III'),
-(4, 1, 'IV'),
-(5, 1, 'V'),
-(6, 1, 'VI'),
-(7, 2, 'VII'),
-(8, 2, 'VIII'),
-(9, 2, 'IX'),
-(10, 3, 'X'),
-(11, 3, 'XI'),
-(12, 3, 'XII');
 
 -- --------------------------------------------------------
 
@@ -811,6 +794,47 @@ INSERT INTO `role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `semester`
+--
+
+CREATE TABLE `semester` (
+  `id_semester` int(11) NOT NULL,
+  `nama_semester` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `semester`
+--
+
+INSERT INTO `semester` (`id_semester`, `nama_semester`, `status`) VALUES
+(1, 'GANJIL', 'AKTIF'),
+(2, 'GENAP', 'AKTIF');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tp`
+--
+
+CREATE TABLE `tp` (
+  `id_tp` int(11) NOT NULL,
+  `nama_tp` varchar(50) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `visible` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tp`
+--
+
+INSERT INTO `tp` (`id_tp`, `nama_tp`, `status`, `visible`) VALUES
+(4, '2020-2021', 'AKTIF', 0),
+(5, '2021-2022', 'AKTIF', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -832,7 +856,8 @@ INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALU
 (6, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 5),
 (7, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 4),
 (8, 'HELMIATI, S.Pd. I', '10061019', 'c4ce452d7140ad81af7dfe82b2caac24', 3),
-(9, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2);
+(9, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2),
+(11, 'ASRITA, ST.,MA', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 2);
 
 -- --------------------------------------------------------
 
@@ -916,6 +941,18 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `semester`
+--
+ALTER TABLE `semester`
+  ADD PRIMARY KEY (`id_semester`);
+
+--
+-- Indeks untuk tabel `tp`
+--
+ALTER TABLE `tp`
+  ADD PRIMARY KEY (`id_tp`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -965,13 +1002,25 @@ ALTER TABLE `jenjang`
 -- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `semester`
+--
+ALTER TABLE `semester`
+  MODIFY `id_semester` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tp`
+--
+ALTER TABLE `tp`
+  MODIFY `id_tp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `wakakur_roster`

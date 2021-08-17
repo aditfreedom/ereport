@@ -35,6 +35,19 @@
                 <input name="password" type="password" id="inputPassword" class="form-control" required>
                 <label for="inputPassword">PASSWORD</label>
               </div>
+
+              <div class="form-group">
+                <label for=""><b>ROLE :</b></label>
+                <select class="form-control"  name="role">
+                <option value="0">Admin</option>
+                <option value="1">Kepala Sekolah</option>
+                <option value="2">Guru Bidang Studi</option>
+                <option value="3">Wali Kelas</option>
+                <option value="4">Waka Kesiswaan</option>
+                <option value="5">Waka Kurikulum</option>
+                </select>
+              </div>  
+
               <button class="btn btn-lg text-light btn-block text-uppercase font-weight-bold rounded-pill btn-info" type="submit"><b>Login</b></button>
               <?php echo form_close();?>
               <!-- <div class="text-center mt-3 font-weight-bold">

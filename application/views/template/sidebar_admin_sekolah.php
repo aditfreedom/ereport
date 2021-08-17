@@ -29,6 +29,9 @@
                 <li><a href="<?=base_url('admin')?>"><i class="fa fa-home"></i> HOME</a></li>   
                 <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_wakasis?> <?=$hidden_walas?>   <?=$hidden_mapel?> href="<?=base_url('admin/role')?>"><i class="fa fa-sitemap"></i> ROLE</a></li>          
                 <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/pengguna')?>"><i class="fa fa-user"></i> PENGGUNA</a></li>      
+                <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/tahun_ajaran')?>"><i class="fa fa-calendar"></i> TAHUN PELAJARAN</a></li>      
+                <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/semester')?>"><i class="fa fa-book"></i> SEMESTER</a></li>      
+                <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/kelas')?>"><i class="fa fa-building"></i> KELAS</a></li>      
                 <li><a href="<?=base_url('admin/info_khusus')?>"><i class="fa fa-info"></i> INFORMASI KHUSUS</a></li>                             
                 <li><a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?> href="<?=base_url('admin/wali_kelas')?>"><i class="fa fa-edit"></i> WALI KELAS</a></li>                             
                 <li><a <?=$hidden_wakasis?> <?=$hidden_wakakur?> href="<?=base_url('admin/mapel')?>"><i class="fa fa-edit"></i> GURU BIDANG STUDI</a></li>                 

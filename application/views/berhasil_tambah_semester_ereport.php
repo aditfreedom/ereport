@@ -12,11 +12,11 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'GAGAL!',
-        'USERNAME & PASSWORD & ROLE SUDAH PERNAH TERDATA',
-        'error'
+        'Berhasil!',
+        'Sukses Menambah Data',
+        'success'
 ).then(function() {
-    window.location = "./tambah_user";
+    window.location = "./semester";
 });
 }
 </script>

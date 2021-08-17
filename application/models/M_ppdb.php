@@ -18,9 +18,9 @@ class M_ppdb extends CI_Model
         return $this->db->query("SELECT * FROM user LEFT JOIN role ON user.role = role.id");
     }
 
-    function cek_jumlah_user($username, $password)
+    function cek_jumlah_user($username, $password,$role)
     {
-        return $this->db->query("SELECT * FROM user where username='$username' AND password='$password'");
+        return $this->db->query("SELECT * FROM user where username='$username' AND password='$password' AND role='$role'");
     }
 
     public function tambah_data_user($data,$table)
@@ -203,6 +203,68 @@ class M_ppdb extends CI_Model
         $this->db->delete($table, $id);
     }
 
+    public function tampil_data_tp()
+    {
+        return $this->db->query("SELECT * FROM tp ORDER BY id_tp DESC");
+    }
+
+
+    public function tambah_tp($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+    
+    public function edit_tp($id)
+    {
+        $query = $this->db->query("SELECT * FROM tp WHERE id_tp='$id'");
+        return $query;
+    }
+
+    public function update_tp($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function update_tp_visible()
+    {
+        return $this->db->query("UPDATE tp SET status='TIDAK AKTIF'");
+    }
+
+    public function hapus_tp($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function tampil_data_semester()
+    {
+        return $this->db->query("SELECT * FROM semester");
+    }
+
+
+    public function tambah_semester($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+    
+    public function edit_semester($id)
+    {
+        $query = $this->db->query("SELECT * FROM semester WHERE id_semester='$id'");
+        return $query;
+    }
+
+    public function update_semester($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_semester($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
 
 
     //ereport projek///
@@ -1082,9 +1144,9 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         where pengguna.username='$username' AND pengguna.password='$password'");
     }
 
-    function cek_login_user($username, $password)
+    function cek_login_user($username, $password,$role)
     {
-        return $this->db->query("SELECT * FROM user where username='$username' AND password='$password'");
+        return $this->db->query("SELECT * FROM user where username='$username' AND password='$password' AND role='$role'");
     }
 
     function cek_nis($nis)

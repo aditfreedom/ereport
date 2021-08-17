@@ -82,7 +82,7 @@ class Admin extends CI_Controller {
 			'role' => $this->input->post('role')
 		);
 
-		$cek_jumlah_user = $this->M_ppdb->cek_jumlah_user($this->input->post('username'),md5($this->input->post('password')))->num_rows();
+		$cek_jumlah_user = $this->M_ppdb->cek_jumlah_user($this->input->post('username'),md5($this->input->post('password')), $this->input->post('role'))->num_rows();
 
 		if ($cek_jumlah_user>0) {
 			$this->load->view('gagal_tambah_user_ereport');
@@ -536,6 +536,155 @@ class Admin extends CI_Controller {
 		$this->M_ppdb->hapus_wakasis($id_roster,'wakakur_roster');
 		redirect(base_url('admin/wakakur_roster'));
 	}
+
+	public function tahun_ajaran()
+	{
+		$data['tp'] = $this->M_ppdb->tampil_data_tp()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tp_ereport',$data);
+	}
+
+	public function tambah_tp()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_tp_ereport');
+	}
+
+	public function insert_tp()
+	{
+		
+			$data = array(
+			'nama_tp' => $this->input->post('nama_tp'),
+			'status' => $this->input->post('status'),
+			'visible' => $this->input->post('visible')
+
+		);
+
+		$status = $this->input->post('status');
+
+		if ($status=="AKTIF") {
+			$this->M_ppdb->update_tp_visible();
+			$this->M_ppdb->tambah_tp($data,'tp');
+		}else{
+			$this->M_ppdb->tambah_tp($data,'tp');
+		}
+			$this->load->view('berhasil_tambah_tp_ereport');
+	}
+
+
+	public function edit_tp($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_tp'] = $this->M_ppdb->edit_tp($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_tp_ereport',$data);
+	}
+
+	public function update_tp(){
+
+		$data = array(
+			'nama_tp' => $this->input->post('nama_tp'),
+			'status' => $this->input->post('status'),
+			'visible' => $this->input->post('visible')
+		);
+		
+	
+		$where = array(
+			'id_tp' => $this->input->post('id_tp')
+		);
+
+		$status = $this->input->post('status');
+		if ($status=="AKTIF") {
+			$this->M_ppdb->update_tp_visible();
+			$this->M_ppdb->update_tp($where,$data,'tp');
+		}else{
+			$this->M_ppdb->update_tp($where,$data,'tp');
+		}
+
+		$this->load->view('berhasil_ubah_tp_ereport');
+	}
+
+	public function hapus_tp($id){
+		$id_tp =    array ('id_tp' => $id);
+		$this->M_ppdb->hapus_tp($id_tp,'tp');
+		redirect(base_url('admin/tahun_ajaran'));
+	}
+
+
+	public function semester()
+	{
+		$data['semester'] = $this->M_ppdb->tampil_data_semester()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('semester_ereport',$data);
+	}
+
+	public function tambah_semester()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_semester_ereport');
+	}
+
+	public function insert_semester()
+	{
+		
+			$data = array(
+			'nama_semester' => $this->input->post('nama_semester'),
+			'status' => $this->input->post('status')
+		);
+
+
+			$this->M_ppdb->tambah_semester($data,'semester');
+			$this->load->view('berhasil_tambah_semester_ereport');
+	}
+
+
+	public function edit_semester($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_semester'] = $this->M_ppdb->edit_semester($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_semester_ereport',$data);
+	}
+
+	public function update_semester(){
+
+		$data = array(
+			'nama_semester' => $this->input->post('nama_semester'),
+			'status' => $this->input->post('status')
+		);
+		
+	
+		$where = array(
+			'id_semester' => $this->input->post('id_semester')
+		);
+
+	
+
+		$this->M_ppdb->update_semester($where,$data,'semester');
+		$this->load->view('berhasil_ubah_semester_ereport');
+	}
+
+	public function hapus_semester($id){
+		$id_semester =    array ('id_semester' => $id);
+		$this->M_ppdb->hapus_semester($id_semester,'semester');
+		redirect(base_url('admin/semester'));
+	}
+
+
+
+
+
+
+
+
 
 
 
