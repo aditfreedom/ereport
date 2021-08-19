@@ -33,18 +33,24 @@
                 <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/semester')?>"><i class="fa fa-book"></i> SEMESTER</a></li>      
                 <li><a <?=$hidden_kepsek?> <?=$hidden_wakakur?> <?=$hidden_mapel?> <?=$hidden_wakasis?> <?=$hidden_walas?> s<?=$hidden_mapel?> href="<?=base_url('admin/kelas')?>"><i class="fa fa-building"></i> KELAS</a></li>      
                 <li><a href="<?=base_url('admin/info_khusus')?>"><i class="fa fa-info"></i> INFORMASI KHUSUS</a></li>                             
-                <li><a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?> href="<?=base_url('admin/wali_kelas')?>"><i class="fa fa-edit"></i> WALI KELAS</a></li>                             
+                <li><a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?>><i class="fa fa-edit"></i> WALI KELAS <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?=base_url('admin/wali_kelas')?>">Laporan Base Class</a></li>
+                      <li><a href="#">Laporan Bulanan (Coming Soon)</a></li>
+                    </ul>
                 <li><a <?=$hidden_wakasis?> <?=$hidden_wakakur?> href="<?=base_url('admin/mapel')?>"><i class="fa fa-edit"></i> GURU BIDANG STUDI</a></li>                 
            
                   <li><a <?=$hidden_wakasis?>><i class="fa fa-edit"></i> WAKA KURIKULUM <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wakakur_roster')?>">Roster</a></li>
-                      <!-- <li><a href="form_advanced.html">Info Tambahan</a></li> -->
+                      <li><a href="#">Notulensi Rapat</a></li>
+                      <li><a href="#">Informasi Tambahan</a></li>
                     </ul>
                   </li>
                   <li><a <?=$hidden_wakakur?>><i class="fa fa-desktop"></i> WAKA KESISWAAN <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wakasis')?>">Pelanggaran & Tindakan</a></li>
+                      <li><a href="#">Informasi Tambahan</a></li>
                     </ul>
                   </li>
                 
