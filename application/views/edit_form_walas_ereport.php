@@ -21,7 +21,7 @@
         <label for=""><b>NAMA WALI KELAS : </b></label>
         <input type="text" name="id_walas" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
         </div>  
-        <div class="form-group">
+        <div class="form-group" hidden>
         <label for=""><b>KELAS: </b></label>
         <input  type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" value="<?=$data->kelas?>" required>
         </div>  

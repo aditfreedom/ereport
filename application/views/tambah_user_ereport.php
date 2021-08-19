@@ -23,6 +23,7 @@
         <option value="3">Wali Kelas</option>
         <option value="4">Waka Kesiswaan</option>
         <option value="5">Waka Kurikulum</option>
+        <option value="6">Tidak Aktif</option>
         </select>
         </div>  
 

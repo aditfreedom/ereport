@@ -42,7 +42,7 @@
                       <!-- <li><a href="form_advanced.html">Info Tambahan</a></li> -->
                     </ul>
                   </li>
-                  <li><a <?=$hidden_mapel?> <?=$hidden_wakakur?>><i class="fa fa-desktop"></i> WAKA KESISWAAN <span class="fa fa-chevron-down"></span></a>
+                  <li><a <?=$hidden_wakakur?>><i class="fa fa-desktop"></i> WAKA KESISWAAN <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wakasis')?>">Pelanggaran & Tindakan</a></li>
                     </ul>

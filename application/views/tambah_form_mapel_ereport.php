@@ -11,14 +11,22 @@
         <div class="form-group" hidden>
         <label for=""><b>ID GURU : </b></label>
         <input type="text" name="id_guru_mapel" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
-        </div>  
+        </div> 
         <div class="form-group">
         <label for=""><b>KELAS: </b></label>
-        <input type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" required>
-        </div>  
+        <select name="kelas" class="selectpicker form-control" data-live-search="true" data-size="3" data-style="btn-info" required>
+        <?php foreach ($kelas as $data) : ?>
+            <option selected value="<?=$data->id_kelas?>"><?=$data->nama_kelas?></option>
+        <?php endforeach; ?>
+      </select>  
         <div class="form-group">
         <label for=""><b>MATA PELAJARAN : </b></label>
         <input type="text" name="mapel" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
+        </div>  
+
+        <div class="form-group">
+        <label for=""><b>TANGGAL : </b></label>
+        <input type="date" name="tanggal_jam_input" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
         </div>  
 
           <hr>
@@ -104,6 +112,8 @@
 
     <script src="<?=base_url('gentelella')?>/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+            <!-- selectpicker -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
 $(document).ready(function() {
     $('#example').DataTable( {

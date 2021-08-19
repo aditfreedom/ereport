@@ -23,6 +23,9 @@
     <link href="<?=base_url('gentelella')?>/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url('gentelella')?>/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
 
+    <!-- selectpicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 
     <!-- Custom Theme Style -->
     <link href="<?=base_url('gentelella')?>/build/css/custom.min.css" rel="stylesheet">

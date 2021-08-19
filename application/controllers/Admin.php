@@ -216,12 +216,14 @@ class Admin extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		if ($role=="3") {
 			$data['walas'] = $this->M_ppdb->tampil_data_form_walas_guru($id_user)->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
 			$this->load->view('template/header',$sess_data);
 			$this->load->view('template/sidebar_admin_sekolah');
 			$this->load->view('form_walas_ereport',$data);
-		}
+		} 
 		else {
 			$data['walas'] = $this->M_ppdb->tampil_data_form_walas()->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
 			$this->load->view('template/header',$sess_data);
 			$this->load->view('template/sidebar_admin_sekolah');
 			$this->load->view('form_walas_ereport',$data);
@@ -234,9 +236,11 @@ class Admin extends CI_Controller {
 	public function tambah_form_walas()
 	{
 		$sess_data = $this->session->userdata();
+		$id_user = $this->session->userdata('id_user');
+		$data['kelas_walas'] = $this->M_ppdb->tampil_data_kelas_walas($id_user)->result();
 		$this->load->view('template/header',$sess_data);
 		$this->load->view('template/sidebar_admin_sekolah');
-		$this->load->view('tambah_form_walas_ereport');
+		$this->load->view('tambah_form_walas_ereport',$data);
 	}
 
 
@@ -325,12 +329,20 @@ class Admin extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		if ($role=="2") {
 			$data['mapel'] = $this->M_ppdb->tampil_data_form_mapel_guru($id_user)->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
 			$this->load->view('template/header',$sess_data);
 			$this->load->view('template/sidebar_admin_sekolah');
 			$this->load->view('form_mapel_ereport',$data);
-		}
+		} else if ($role=="3") {
+			$data['mapel'] = $this->M_ppdb->tampil_data_form_mapel_walas($id_user)->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_mapel_ereport',$data);
+		} 
 		else {
 			$data['mapel'] = $this->M_ppdb->tampil_data_form_mapel()->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
 			$this->load->view('template/header',$sess_data);
 			$this->load->view('template/sidebar_admin_sekolah');
 			$this->load->view('form_mapel_ereport',$data);
@@ -341,9 +353,10 @@ class Admin extends CI_Controller {
 	public function tambah_form_mapel()
 	{
 		$sess_data = $this->session->userdata();
+		$data['kelas'] = $this->M_ppdb->tampil_data_kelas_mapel()->result();
 		$this->load->view('template/header',$sess_data);
 		$this->load->view('template/sidebar_admin_sekolah');
-		$this->load->view('tambah_form_mapel_ereport');
+		$this->load->view('tambah_form_mapel_ereport',$data);
 	}
 
 	public function insert_form_mapel()
@@ -353,6 +366,7 @@ class Admin extends CI_Controller {
 			'id_guru_mapel' => $this->input->post('id_guru_mapel'),
 			'kelas' => $this->input->post('kelas'),
 			'mapel' => $this->input->post('mapel'),
+			'tanggal_jam_input' => $this->input->post('tanggal_jam_input'),
 			'deskripsi_akademik' => $this->input->post('deskripsi_akademik'),
 			'deskripsi_sikap' => $this->input->post('deskripsi_sikap')
 		);
@@ -678,13 +692,72 @@ class Admin extends CI_Controller {
 		redirect(base_url('admin/semester'));
 	}
 
+	public function kelas()
+	{
+		$data['kelas'] = $this->M_ppdb->tampil_data_kelas()->result();
+		$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('kelas_ereport',$data);
+	}
 
+	public function tambah_kelas()
+	{
+		$sess_data = $this->session->userdata();
+		$data['tp'] = $this->M_ppdb->tampil_data_tp_input()->result();
+		$data['walas'] = $this->M_ppdb->tampil_data_walas_input()->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_kelas_ereport',$data);
+	}
 
+	public function insert_kelas()
+	{
+		
+			$data = array(
+			'id_tp' => $this->input->post('id_tp'),
+			'nama_kelas' => $this->input->post('nama_kelas'),
+			'id_walas' => $this->input->post('id_walas')
+		);
 
+			$this->M_ppdb->tambah_kelas($data,'kelas');
+			$this->load->view('berhasil_tambah_kelas_ereport');
+	}
 
+	public function edit_kelas($id){
+		$sess_data = $this->session->userdata();
+		$data['tp'] = $this->M_ppdb->tampil_data_tp_input_id()->result();
+		$data['walas'] = $this->M_ppdb->tampil_data_walas_input()->result();
+		$data['edit_kelas'] = $this->M_ppdb->edit_kelas($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_kelas_ereport',$data);
+	}
 
+	public function update_kelas(){
 
+		$data = array(
+			'id_tp' => $this->input->post('id_tp'),
+			'nama_kelas' => $this->input->post('nama_kelas'),
+			'id_walas' => $this->input->post('id_walas')
+		);
+	
+		$where = array(
+			'id_kelas' => $this->input->post('id_kelas')
+		);
 
+	
+
+		$this->M_ppdb->update_kelas($where,$data,'kelas');
+		$this->load->view('berhasil_ubah_kelas_ereport');
+	}
+
+	public function hapus_kelas($id){
+		$id_kelas =    array ('id_kelas' => $id);
+		$this->M_ppdb->hapus_kelas($id_kelas,'kelas');
+		redirect(base_url('admin/kelas'));
+	}
 
 
 

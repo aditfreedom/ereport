@@ -12,7 +12,10 @@
   }
   ?>
           <div class="">
-          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN GURU BIDANG STUDI</b></a><br><br>
+          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN GURU BIDANG STUDI</b></a><br>
+          <?php foreach ($tp_aktif as $data) : ?>
+            <h3 class="text-primary mb-3 font-weight-bold">TAHUN PELAJARAN AKTIF : <?=$data->nama_tp?></h3>
+          <?php endforeach; ?>
             <p align="left" <?=$hidden_kepsek?> <?=$hidden_walas?>>
               <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_form_mapel')?>">TAMBAH LAPORAN BIDANG STUDI</a>
             </p>
@@ -34,7 +37,7 @@
                     <tr class="nomor text-center">
                     <td scope="row"><?php echo $i; ?></td>
                       <td scope="row"><b><?php echo $data->nama_user; ?></b></td>
-                      <td scope="row"><?php echo $data->kelas; ?></td>
+                      <td scope="row"><?php echo $data->nama_kelas; ?></td>
                       <td><?php echo $data->mapel;  ?></td>
                       <td><?php echo $data->tanggal_jam_input;  ?></td>
                      <td><a  href="<?=base_url('admin/baca_form_mapel/').$data->id_form_mapel?>" class="btn btn-sm btn-success"><b>BACA REPORT</u></a>

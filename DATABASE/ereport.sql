@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Agu 2021 pada 19.01
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 7.4.16
+-- Waktu pembuatan: 19 Agu 2021 pada 11.22
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -681,7 +681,7 @@ CREATE TABLE `form_mapel` (
   `id_guru_mapel` int(11) NOT NULL,
   `kelas` varchar(255) NOT NULL,
   `mapel` varchar(255) NOT NULL,
-  `tanggal_jam_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tanggal_jam_input` date NOT NULL DEFAULT current_timestamp(),
   `deskripsi_akademik` varchar(1500) NOT NULL,
   `deskripsi_sikap` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -691,7 +691,8 @@ CREATE TABLE `form_mapel` (
 --
 
 INSERT INTO `form_mapel` (`id_form_mapel`, `id_guru_mapel`, `kelas`, `mapel`, `tanggal_jam_input`, `deskripsi_akademik`, `deskripsi_sikap`) VALUES
-(5, 9, 'XII IPS OXFORD', 'MATEMATIKA', '2021-08-14 02:48:41', '-', '-');
+(6, 15, '7', 'Matematika', '2021-08-19', '-', '-'),
+(7, 16, '9', 'Matematika', '2021-08-19', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -715,6 +716,16 @@ CREATE TABLE `form_walas` (
   `follow_up` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `form_walas`
+--
+
+INSERT INTO `form_walas` (`id_form_walas`, `id_walas`, `kelas`, `tanggal`, `waktu`, `jlh_tepat_waktu`, `jlh_keterlambatan`, `jlh_sakit`, `jlh_izin`, `jlh_alpa`, `deskripsi_base_class`, `permasalahan_kelas`, `follow_up`) VALUES
+(5, 10, '4', '2021-08-16', '07:45:00', 13, 1, 0, 1, 2, '-Siswa diingatkan untuk meneruskan ke ortu perihal BPP juli dan Agustus.\r\n-Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\r\n-Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\r\n-Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \r\n-Memperketat prokes. ', 'Tidak ad permasalahan dalam kelas..', '-'),
+(6, 14, '8', '2021-08-16', '07:45:00', 21, 0, 1, 0, 0, 'Semua siswa hadir tepat waktu. Wali kelas mengingatkan siswa terkait pembayaran BPP untuk Agustus 2021, piket kelas dan matrikulasi. Wali kelas juga menginfokan kepada siswa bahwa matrikulasi akan berkahir pada minggu ini di tanggal 20 Agustus 2021. Pada minggu berikutnya siswa akan mengikuti post test dan wawancara untuk pemetaan jurusan masing-masing siswa. \r\nSiswa juga diinfokan terkait dengan funtenstic dan fun OSIS dilakukan di kelas masing-masing dan untuk Asmaul Husna akan dimulai Jumat ini tanggal 20 Agustus 2021 pukul 07.30 di lapangan basket dengan membentuk shaf dan menjaga jarak. ', 'Ketika wali kelas masuk ke kelas Stanford, terdapat siswa (Imran yang terlihat oleh wali kelas) yang sedang menggunakan HP di dalam kelas dan beberapa siswa langsung menyimpan kembali ketika wali kelas sudah berada di kelas.', 'Wali kelas mengingatkan dan menegur terlebih dahulu siswa tersebut. Apabila masih berkelanjutan maka HP akan diambil oleh wali kelas dan diberikan ke Wakasis.'),
+(7, 8, '1', '2021-08-16', '07:45:00', 16, 0, 0, 1, 0, 'Guru menanyakan kabar siswa lalu sharing berbagai issue terkait kondisi saat pandemi dan memotivasi siswa untuk semangat dalam belajar dan selalu menjaga prokes. Kemudian menginfokan beberapa pengumuman sekolah terkait BPP, kegiatan Funtestic, dan Asmaul Husna yang akan dilaksanakan pada hari Jum\'at.', 'Sejauh ini belum ada masalah yang serius dikelas, terkait kebersihan dan kerapihan kelas semua siswa sudah tau hak dan kewajiban yang harus mereka laksanakan.  ', 'Untuk disiplin kehadiran, pakaian, penampilan, dan sikap siswa wali kelas akan selalu mengingatkan apabila ada siswa yang melanggar.'),
+(8, 9, '7', '2021-08-16', '07:30:00', 8, 2, 1, 1, 0, 'Baseclass berjalan lancar, wali kelas mengingatkan tentang BPP, peraturan sekolah dan prokes. Pada hari ini masih ada siswa yang datang terlambat sebanyak dua orang.', 'Tidak ada permasalahan, namun masih ada siswa yang datang terlambat.', 'Wali kelas mengingatkan siswa untuk hadir tepat waktu di sekolah.');
+
 -- --------------------------------------------------------
 
 --
@@ -733,7 +744,7 @@ CREATE TABLE `info_khusus` (
 --
 
 INSERT INTO `info_khusus` (`id_info`, `judul`, `info`, `tanggal_terbit`) VALUES
-(4, 'RAPAT MANAJEMEN', 'A', '2021-08-14');
+(10, 'Info Base Class 16 Agustus 2021', 'Baseclass info\n\n1. Mengingatkan siswa untuk meneruskan ke ortu perihal BPP juli dan Agustus.\n \n2.Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\n\n3. Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\n\n4. Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \n\n5. Khusus kelas X diingatkan perihal akan berakhirnya matrikulasi dan post test yg akan dilaksanakan serta wawancara untuk penentuan kelas IPA dan IPS\n\n6. Memperketat prokes. \n\n7. CIVIC online di hari sabtu\n\n8. Silahkan tambahkan dengan isu kelas masing2. \n\nThanks ', '2021-08-16');
 
 -- --------------------------------------------------------
 
@@ -768,6 +779,20 @@ CREATE TABLE `kelas` (
   `id_walas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `id_tp`, `nama_kelas`, `id_walas`) VALUES
+(1, '5', 'XI IPA MONASH', 8),
+(4, '5', 'XI IPA PRINCETON', 10),
+(5, '5', 'XI IPS CORNELL', 11),
+(6, '5', 'XII IPA OXFORD', 12),
+(7, '5', 'XII IPS CAMBRIDGE', 9),
+(8, '5', 'X STANDFORD', 14),
+(9, '5', 'X HARVARD', 13),
+(10, '4', 'XI IPA', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -789,7 +814,8 @@ INSERT INTO `role` (`id`, `role`) VALUES
 (2, 'Guru Bidang Studi'),
 (3, 'Wali Kelas'),
 (4, 'Waka Kesiswaan'),
-(5, 'Waka Kurikulum');
+(5, 'Waka Kurikulum'),
+(6, 'Tidak Aktif');
 
 -- --------------------------------------------------------
 
@@ -829,7 +855,7 @@ CREATE TABLE `tp` (
 --
 
 INSERT INTO `tp` (`id_tp`, `nama_tp`, `status`, `visible`) VALUES
-(4, '2020-2021', 'AKTIF', 0),
+(4, '2020-2021', 'TIDAK AKTIF', 0),
 (5, '2021-2022', 'AKTIF', 1);
 
 -- --------------------------------------------------------
@@ -852,12 +878,18 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALUES
 (2, 'ADITYA AZIZ FIKHRI, S.Tr.Kom', '10186018', 'bc375f11307eac440f9f5f36e5e15404', 0),
-(5, 'Kartika Hakim, S.S., MA', '10151003', '6304847204cc728b80efa8eb1290a69a', 1),
+(5, 'KARTIKA HAKIM, S.S., MA', '10151003', '6304847204cc728b80efa8eb1290a69a', 1),
 (6, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 5),
 (7, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 4),
 (8, 'HELMIATI, S.Pd. I', '10061019', 'c4ce452d7140ad81af7dfe82b2caac24', 3),
-(9, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2),
-(11, 'ASRITA, ST.,MA', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 2);
+(9, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 3),
+(10, 'RAHMI, S.Pd.Gr', '10211004', '4e86efecd89907872cae4c96c58adcad', 3),
+(11, 'DIAN FERDIANSYAH, M.A', '10141001', '69e3512f7d6ff609c8b727e541e22187', 3),
+(12, 'NURDIANA, S.Pd', '10201003', '5c46f9f1ee5a4d62d352c0ffe3a95ed9', 3),
+(13, 'MUKHLISANUR, S. Pd', '10121083', 'b22b76f444c7930f3e3fe47ddfba7600', 3),
+(14, 'DESTYA DARSIANA, S.SOS', '10206053', 'a828e1eca5b1d070a10599b5ebe11a5c', 3),
+(15, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2),
+(16, 'RAHMI, S.Pd.Gr', '10211004', '4e86efecd89907872cae4c96c58adcad', 2);
 
 -- --------------------------------------------------------
 
@@ -978,19 +1010,19 @@ ALTER TABLE `wakasis`
 -- AUTO_INCREMENT untuk tabel `form_mapel`
 --
 ALTER TABLE `form_mapel`
-  MODIFY `id_form_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_form_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `form_walas`
 --
 ALTER TABLE `form_walas`
-  MODIFY `id_form_walas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_form_walas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `info_khusus`
 --
 ALTER TABLE `info_khusus`
-  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenjang`
@@ -1002,7 +1034,7 @@ ALTER TABLE `jenjang`
 -- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `semester`
@@ -1020,7 +1052,7 @@ ALTER TABLE `tp`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `wakakur_roster`

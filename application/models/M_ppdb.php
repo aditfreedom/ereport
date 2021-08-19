@@ -77,12 +77,14 @@ class M_ppdb extends CI_Model
 
     public function tampil_data_form_walas()
     {
-        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user ORDER BY id_form_walas DESC");
+        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user
+                                 LEFT JOIN kelas ON form_walas.kelas=kelas.id_kelas ORDER BY form_walas.id_form_walas DESC");
     }
 
     public function tampil_data_form_walas_guru($id)
     {
-        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user WHERE user.id_user = '$id' ORDER BY id_form_walas DESC");
+        return $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user 
+        LEFT JOIN kelas ON form_walas.kelas=kelas.id_kelas WHERE user.id_user = '$id' ORDER BY id_form_walas DESC");
     }
 
     public function tambah_form_walas($data,$table)
@@ -116,12 +118,26 @@ class M_ppdb extends CI_Model
 
     public function tampil_data_form_mapel()
     {
-        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user ORDER BY id_form_mapel DESC");
+        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user
+                                LEFT JOIN kelas ON form_mapel.kelas = kelas.id_kelas
+                                LEFT JOIN tp ON kelas.id_tp = tp.id_tp 
+                                WHERE tp.status='AKTIF' ORDER BY id_form_mapel DESC");
+    }
+
+    public function tampil_data_form_mapel_walas($id_user)
+    {
+        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user 
+                                LEFT JOIN kelas ON form_mapel.kelas = kelas.id_kelas 
+                                LEFT JOIN tp ON kelas.id_tp = tp.id_tp
+                                WHERE tp.status='AKTIF' AND kelas.id_walas='$id_user' ORDER BY id_form_mapel DESC");
     }
 
     public function tampil_data_form_mapel_guru($id_user)
     {
-        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user WHERE user.id_user='$id_user' ORDER BY id_form_mapel DESC");
+        return $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user 
+                                LEFT JOIN kelas ON form_mapel.kelas = kelas.id_kelas 
+                                LEFT JOIN tp ON kelas.id_tp = tp.id_tp
+                                WHERE user.id_user='$id_user' AND tp.status='AKTIF' ORDER BY id_form_mapel DESC");
     }
 
     public function tambah_form_mapel($data,$table)
@@ -265,6 +281,72 @@ class M_ppdb extends CI_Model
     {
         $this->db->delete($table, $id);
     }
+
+    public function tampil_data_kelas()
+    {
+        return $this->db->query("SELECT * FROM kelas LEFT JOIN tp ON kelas.id_tp = tp.id_tp
+                                 LEFT JOIN user ON kelas.id_walas = user.id_user
+                                 WHERE tp.status='AKTIF' ORDER BY id_kelas DESC");
+    }
+
+    public function tampil_data_kelas_mapel()
+    {
+        return $this->db->query("SELECT * FROM kelas LEFT JOIN tp ON kelas.id_tp = tp.id_tp
+                                 WHERE tp.status='AKTIF'");
+    }
+
+    public function tampil_data_kelas_walas($id)
+    {
+        return $this->db->query("SELECT * FROM kelas LEFT JOIN tp ON kelas.id_tp = tp.id_tp WHERE tp.status='AKTIF' AND kelas.id_walas='$id'");
+    }
+
+    public function tampil_data_tp_input()
+    {
+        return $this->db->query("SELECT * FROM tp WHERE visible='1' ORDER BY id_tp DESC");
+    }
+
+    public function tampil_data_tp_aktif()
+    {
+        return $this->db->query("SELECT * FROM tp WHERE status='AKTIF'");
+    }
+
+    public function tampil_data_tp_input_id()
+    {
+        return $this->db->query("SELECT * FROM tp WHERE visible='1' ORDER BY id_tp DESC");
+    }
+
+    public function tampil_data_walas_input()
+    {
+        return $this->db->query("SELECT * FROM user WHERE role='3'");
+    }
+
+    public function tambah_kelas($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function edit_kelas($id)
+    {
+        $query = $this->db->query("SELECT * FROM kelas LEFT JOIN tp ON kelas.id_tp = tp.id_tp
+                                    LEFT JOIN user ON kelas.id_walas = user.id_user
+                                    WHERE kelas.id_kelas='$id'");
+        return $query;
+    }
+
+    public function update_kelas($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_kelas($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+
+
 
 
     //ereport projek///

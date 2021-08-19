@@ -1,71 +1,42 @@
 <!-- page content -->
 <div class="right_col" role="main">
-          <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>UBAH PENGGUNA</b></a><br><br>
-    
-    <form action="<?=base_url('admin/update_user')?>" method="post">
-    <div class="row">
-    <div class="col">
-    <div class="container">
-    <?php foreach ($edit_user as $data) : ?>
+          <div class="">
+          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>DAFTAR KELAS </b></a><br>
+          <?php foreach ($tp_aktif as $data) : ?>
+            <h3 class="text-primary mb-3 font-weight-bold">TAHUN PELAJARAN AKTIF : <?=$data->nama_tp?></h3>
+          <?php endforeach; ?>
+            <p align="left">
+              <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_kelas')?>">TAMBAH DATA</a>
+            </p>
 
-      <div class="form-group" hidden>
-        <label for=""><b>ID USER: </b></label>
-        <input type="text" name="id_user" class="form-control" maxlength="50" value="<?=$data->id_user?>" required>
-        </div>  
+            <table class="table table-bordered table-stripped" id="example">
+                <thead class="text-center">
+                  <tr>
+                  <th scope="col">NO</th>
+                    <th scope="col">TAHUN PELAJARAN</th>
+                    <th scope="col">NAMA KELAS</th>
+                    <th scope="col">NAMA WALI KELAS</th>
+                    <th scope="col">AKSI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 1;
+                  foreach ($kelas as $data) : ?>
+                    <tr class="nomor text-center">
+                    <td scope="row"><?php echo $i; ?></td>
+                      <td scope="row"><?php echo $data->nama_tp; ?></td>
+                      <td scope="row"><?php echo $data->nama_kelas; ?></td>
+                      <td><?php echo $data->nama_user; ?></td>
+                     <td><?php echo anchor('admin/edit_kelas/'.$data->id_kelas,'<div class="btn btn-primary btn-sm"><b>EDIT DATA</b></div>')?> 
+                      <?php echo anchor('admin/hapus_kelas/'.$data->id_kelas,'<div class="btn btn-danger btn-sm text-bold"><b>HAPUS DATA</b></div>')?></td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
-        <div class="form-group">
-        <label for=""><b>NAMA PENGGUNA: </b></label>
-        <input type="text" name="nama_user" class="form-control" maxlength="50" value="<?=$data->nama_user?>" required>
-        </div>  
-
-        <div class="form-group">
-        <label for=""><b>ROLE :</b></label>
-        <select class="form-control"  name="role">
-        <option selected hidden value="<?=$data->id?>"><?=$data->role?></option>
-        <option value="0">Admin</option>
-        <option value="1">Kepala Sekolah</option>
-        <option value="2">Guru Bidang Studi</option>
-        <option value="3">Wali Kelas</option>
-        <option value="4">Waka Kesiswaan</option>
-        <option value="5">Waka Kurikulum</option>
-        <option value="6">Tidak Aktif</option>
-        </select>
-        </div>  
-
-        </div>    
-        </div>
-
-    <div class="col">
-        <div class="container">
-        <div class="form-group">
-        <label for=""><b>USERNAME</b></label>
-        <input type="text" name="username" class="form-control" placeholder="Username" value="<?=$data->username?>" maxlength="15" required>
-        </div>  
-
-        <div class="form-group" hidden>
-        <label for=""><b>PASSWORD</b></label>
-        <input type="password" name="password_lama" class="form-control" maxlength="20" value="<?=$data->password?>" placeholder="Password" required>
-        </div>  
-
-        <div class="form-group">
-        <label for=""><b>PASSWORD</b></label>
-        <input type="password" name="password_baru" class="form-control" maxlength="20"  placeholder="Kosongkan Bila Tidak Mengganti Password" >
-        </div>  
-
-       
-        </div>    
-        </div>
-        </div>
-        <?php endforeach; ?>
-
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">UBAH PENGGUNA</button><br><br>
-        </form>
-          
-          
           </div>
    
-
                   </div>
                 </div>
               </div>
