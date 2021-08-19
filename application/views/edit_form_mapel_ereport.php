@@ -21,10 +21,19 @@
         <label for=""><b>NAMA WALI KELAS : </b></label>
         <input  type="text" name="id_guru_mapel" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->id_guru_mapel?>">
         </div>  
+        <?php endforeach; ?>
         <div class="form-group">
         <label for=""><b>KELAS: </b></label>
-        <input  value="<?=$data->kelas?>" type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" required>
-        </div>  
+        <select name="kelas" class="selectpicker form-control" data-live-search="true" data-size="3" data-style="btn-info" required>
+        <?php foreach ($edit_form_mapel as $data) : ?>
+            <option selected value="<?=$data->id_kelas?>"><?=$data->nama_kelas?></option>
+            <?php endforeach; ?>
+        <?php foreach ($kelas as $data) : ?>
+            <option value="<?=$data->id_kelas?>"><?=$data->nama_kelas?></option>
+        <?php endforeach; ?>
+      </select>  
+
+      <?php foreach ($edit_form_mapel as $data) : ?>
         <div class="form-group">
         <label for=""><b>MATA PELAJARAN : </b></label>
         <input  value="<?=$data->mapel?>" type="text" name="mapel" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
@@ -123,6 +132,9 @@
 
 
     <script src="<?=base_url('gentelella')?>/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+     <!-- selectpicker -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
     <script>
 $(document).ready(function() {

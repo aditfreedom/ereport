@@ -386,6 +386,7 @@ class Admin extends CI_Controller {
 
 	public function edit_form_mapel($id){
 		$sess_data = $this->session->userdata();
+		$data['kelas'] = $this->M_ppdb->tampil_data_kelas_mapel()->result();
 		$data['edit_form_mapel'] = $this->M_ppdb->edit_form_mapel($id)->result();
 		$this->load->view('template/header',$sess_data);
 		$this->load->view('template/sidebar_admin_sekolah');

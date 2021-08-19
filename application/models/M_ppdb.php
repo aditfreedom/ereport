@@ -153,7 +153,8 @@ class M_ppdb extends CI_Model
 
     public function edit_form_mapel($id)
     {
-        $query = $this->db->query("SELECT * FROM form_mapel WHERE id_form_mapel='$id'");
+        $query = $this->db->query("SELECT * FROM form_mapel 
+                                    LEFT JOIN kelas ON form_mapel.kelas = kelas.id_kelas WHERE form_mapel.id_form_mapel='$id'");
         return $query;
     }
 
@@ -294,6 +295,7 @@ class M_ppdb extends CI_Model
         return $this->db->query("SELECT * FROM kelas LEFT JOIN tp ON kelas.id_tp = tp.id_tp
                                  WHERE tp.status='AKTIF'");
     }
+
 
     public function tampil_data_kelas_walas($id)
     {
