@@ -20,7 +20,7 @@
         </div>  
         <div class="form-group">
         <label for=""><b>KELAS: </b></label>
-        <input disabled type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" value="<?=$data->kelas?>" required>
+        <input disabled type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" value="<?=$data->nama_kelas?>" required>
         </div>  
         <div class="form-group">
         <label for=""><b>TANGGAL BASE CLASS : </b></label>

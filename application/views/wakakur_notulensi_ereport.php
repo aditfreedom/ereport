@@ -1,68 +1,60 @@
 <!-- page content -->
 <div class="right_col" role="main">
-          <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN BIDANG STUDI</b></a><br><br>
-    <form action="<?=base_url('admin/update_form_mapel')?>" method="post">
+<?php
+  $role=$this->session->userdata('role');
+  $hidden_kepsek="";
+  $hidden_mapel="";
+  $hidden_walas="";
+  $hidden_wakasis="";
+  if ($role=="1") {
+    $hidden_kepsek="hidden";
+  }
+  if ($role=="2") {
+    $hidden_mapel="hidden";
+  }
+  if ($role=="3") {
+    $hidden_walas="hidden";
+  }
+  if ($role=="4") {
+    $hidden_wakasiss="hidden";
+  }
+  ?>
+          <div class="">
+          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>NOTULENSI RAPAT</b></a><br><br>
+            <p align="left" <?=$hidden_kepsek?> <?=$hidden_mapel?> <?=$hidden_walas?> <?=$hidden_wakasis?>>
+              <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_notulensi')?>">TAMBAH DATA</a>
+            </p>
 
-    <div class="row">
-    <div class="col">
-    <div class="container">
-    <?php foreach ($baca_form_mapel as $data) : ?>
+            <table class="table table-bordered table-stripped" id="example">
+                <thead class="text-center">
+                  <tr>
+                  <th scope="col">NO</th>
+                    <th scope="col">JUDUL RAPAT</th>
+                    <th scope="col">TANGGAL</th>
+                    <th scope="col">WAKTU</th>
+                    <th scope="col">AKSI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 1;
+                  foreach ($notulensi as $data) : ?>
+                    <tr class="nomor text-center">
+                    <td scope="row"><?php echo $i; ?></td>
+                      <td scope="row"><b><?php echo $data->judul_rapat; ?></b></td>
+                      <td scope="row"><b><?php echo $data->tanggal; ?></b></td>
+                      <td scope="row"><?php echo $data->waktu; ?></td>
+                     <td>
+                     <a href="<?=base_url('file/notulensi/').$data->file_notulensi?>" class="btn btn-sm btn-success"><b>UNDUH FILE NOTULENSI</u></a>
+                     <a <?=$hidden_wakasis?> <?=$hidden_kepsek?> <?=$hidden_mapel?> <?=$hidden_walas?> href="<?=base_url('admin/hapus_notulensi/').$data->id_notulensi?>" class="btn btn-sm btn-danger"><b>HAPUS FILE NOTULENSI</u></a>
+                      </td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
-      <div class="row">
-    <div class="col">
-    <div class="container">
-        
-
-    <div class="form-group">
-        <label for=""><b>NAMA WALI KELAS : </b></label>
-        <input hidden type="text" name="id_guru_mapel" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
-        <input disabled type="text" name="nama_walas" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->nama_user?>">
-        </div>  
-        <div class="form-group">
-        <label for=""><b>KELAS: </b></label>
-        <input disabled value="<?=$data->nama_kelas?>" type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" required>
-        </div>  
-        <div class="form-group">
-        <label for=""><b>MATA PELAJARAN : </b></label>
-        <input disabled value="<?=$data->mapel?>" type="text" name="mapel" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
-        </div>  
-
-          <hr>
-          <h3>DESKRIPSI HARIAN KELAS</h3>
-          <hr>
-
-          <div class="form-group">
-          <label for=""><b>DESKRIPSI AKADEMIK : </b></label>
-          <textarea disabled required name="deskripsi_akademik" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsikan keadaan akademik siswa (Terutama bagi siswa yang menonjol (baik atau kurang) dalam pelajaran)"><?=$data->deskripsi_akademik?></textarea>
-          </div>  
-          <div class="form-group">
-          <label for=""><b>DESKRIPSI SIKAP: </b></label>
-          <textarea disabled required name="deskripsi_sikap" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsikan keadaan sikap siswa (Terutama bagi siswa yang menonjol (baik atau kurang) dalam sikap)"><?=$data->deskripsi_sikap?></textarea>
-          </div>  
-
-        </div>  
-
-        </div>    
-        </div>
-  
-        </div>
-        </div>
-
-        </div>    
-        </div>
-  
-        </div>
-        </div>
-
-        <?php endforeach; ?>
-
-
-          
-          
           </div>
    
-
                   </div>
                 </div>
               </div>

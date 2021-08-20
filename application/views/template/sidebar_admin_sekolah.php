@@ -43,14 +43,14 @@
                   <li><a <?=$hidden_wakasis?>><i class="fa fa-edit"></i> WAKA KURIKULUM <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wakakur_roster')?>">Roster</a></li>
-                      <li><a href="#">Notulensi Rapat</a></li>
-                      <li><a href="#">Informasi Tambahan</a></li>
+                      <li><a href="<?=base_url('admin/notulensi_rapat')?>">Notulensi Rapat</a></li>
+                      <li><a href="<?=base_url('admin/wakakur_info_tambahan')?>">Informasi Tambahan</a></li>
                     </ul>
                   </li>
                   <li><a <?=$hidden_wakakur?>><i class="fa fa-desktop"></i> WAKA KESISWAAN <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wakasis')?>">Pelanggaran & Tindakan</a></li>
-                      <li><a href="#">Informasi Tambahan</a></li>
+                      <li><a href="<?=base_url('admin/wakasis_info_tambahan')?>">Informasi Tambahan</a></li>
                     </ul>
                   </li>
                 

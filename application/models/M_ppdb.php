@@ -94,7 +94,8 @@ class M_ppdb extends CI_Model
 
     public function baca_form_walas($id)
     {
-        $query = $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user WHERE id_form_walas='$id'");
+        $query = $this->db->query("SELECT * FROM form_walas LEFT JOIN user ON form_walas.id_walas = user.id_user 
+                                    LEFT JOIN kelas ON form_walas.kelas=kelas.id_kelas WHERE id_form_walas='$id'");
         return $query;
     }
 
@@ -147,7 +148,8 @@ class M_ppdb extends CI_Model
 
     public function baca_form_mapel($id)
     {
-        $query = $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user WHERE id_form_mapel='$id'");
+        $query = $this->db->query("SELECT * FROM form_mapel LEFT JOIN user ON form_mapel.id_guru_mapel = user.id_user
+                                    LEFT JOIN kelas ON form_mapel.kelas=kelas.id_kelas WHERE id_form_mapel='$id'");
         return $query;
     }
 
@@ -347,10 +349,96 @@ class M_ppdb extends CI_Model
         $this->db->delete($table, $id);
     }
 
+    public function tampil_data_notulensi()
+    {
+        return $this->db->query("SELECT * FROM notulensi ORDER BY id_notulensi DESC");
+    }
+
+    public function tambah_notulensi($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+
+    public function hapus_notulensi($id)
+    {
+        $this->db->delete('notulensi', $id);
+    }
+
+    public function tampil_data_info_tambahan_wakakur()
+    {
+        return $this->db->query("SELECT * FROM wakakur_infotambahan ORDER BY id_info DESC");
+    }
+
+    public function tambah_data_infotambahan($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function hapus_infotambahan($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function edit_infotambahan($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakakur_infotambahan WHERE id_info='$id'");
+        return $query;
+    }
+
+    public function update_infotambahan($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function baca_infotambahan($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakakur_infotambahan WHERE id_info='$id'");
+        return $query;
+    }
+
+    public function tampil_data_info_tambahan_wakasis()
+    {
+        return $this->db->query("SELECT * FROM wakasis_infotambahan ORDER BY id_info DESC");
+    }
+
+    public function tambah_data_infotambahan_wakasis($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function hapus_infotambahan_wakasis($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function edit_infotambahan_wakasis($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakasis_infotambahan WHERE id_info='$id'");
+        return $query;
+    }
+    
+    public function update_infotambahan_wakasis($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function baca_infotambahan_wakasis($id)
+    {
+        $query = $this->db->query("SELECT * FROM wakasis_infotambahan WHERE id_info='$id'");
+        return $query;
+    }
 
 
 
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //ereport projek///
 
 

@@ -1,47 +1,33 @@
 <!-- page content -->
 <div class="right_col" role="main">
           <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN BIDANG STUDI</b></a><br><br>
-    <form action="<?=base_url('admin/update_form_mapel')?>" method="post">
-
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH NOTULENSI</b></a><br><br>
+    
+    <?php echo form_open_multipart('admin/insert_notulensi');?>
     <div class="row">
     <div class="col">
     <div class="container">
-    <?php foreach ($baca_form_mapel as $data) : ?>
-
-      <div class="row">
-    <div class="col">
-    <div class="container">
-        
+      
 
     <div class="form-group">
-        <label for=""><b>NAMA WALI KELAS : </b></label>
-        <input hidden type="text" name="id_guru_mapel" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
-        <input disabled type="text" name="nama_walas" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->nama_user?>">
-        </div>  
-        <div class="form-group">
-        <label for=""><b>KELAS: </b></label>
-        <input disabled value="<?=$data->nama_kelas?>" type="text" name="kelas" class="form-control" maxlength="50" placeholder="Kelas" required>
-        </div>  
-        <div class="form-group">
-        <label for=""><b>MATA PELAJARAN : </b></label>
-        <input disabled value="<?=$data->mapel?>" type="text" name="mapel" class="form-control" maxlength="50" placeholder="Mata Pelajaran" required>
-        </div>  
+        <label for=""><b>JUDUL RAPAT : </b></label>
+        <input type="text" name="judul_rapat" class="form-control" maxlength="50" placeholder="Judul Rapat" required>
+    </div>  
 
-          <hr>
-          <h3>DESKRIPSI HARIAN KELAS</h3>
-          <hr>
+    <div class="form-group">
+        <label for=""><b>TANGGAL : </b></label>
+        <input type="date" name="tanggal" class="form-control" maxlength="50" placeholder="Judul Rapat" required>
+    </div> 
 
-          <div class="form-group">
-          <label for=""><b>DESKRIPSI AKADEMIK : </b></label>
-          <textarea disabled required name="deskripsi_akademik" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsikan keadaan akademik siswa (Terutama bagi siswa yang menonjol (baik atau kurang) dalam pelajaran)"><?=$data->deskripsi_akademik?></textarea>
-          </div>  
-          <div class="form-group">
-          <label for=""><b>DESKRIPSI SIKAP: </b></label>
-          <textarea disabled required name="deskripsi_sikap" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsikan keadaan sikap siswa (Terutama bagi siswa yang menonjol (baik atau kurang) dalam sikap)"><?=$data->deskripsi_sikap?></textarea>
-          </div>  
-
-        </div>  
+    <div class="form-group">
+        <label for=""><b>WAKTU : </b></label>
+        <input type="time" name="waktu" class="form-control" maxlength="50" placeholder="Judul Rapat" required>
+    </div> 
+      
+    <div class="form-group">
+        <label for=""><b>UPLOAD FILE NOTULENSI (PDF) : </b></label>
+        <input type="file" name="file_notulensi" class="form-control" placeholder="Mata Pelajaran" required>
+    </div>  
 
         </div>    
         </div>
@@ -49,15 +35,8 @@
         </div>
         </div>
 
-        </div>    
-        </div>
-  
-        </div>
-        </div>
-
-        <?php endforeach; ?>
-
-
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH NOTULENSI</button><br><br>
+        </form>
           
           
           </div>

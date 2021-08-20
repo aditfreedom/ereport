@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Agu 2021 pada 11.22
+-- Waktu pembuatan: 20 Agu 2021 pada 06.33
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -686,14 +686,6 @@ CREATE TABLE `form_mapel` (
   `deskripsi_sikap` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `form_mapel`
---
-
-INSERT INTO `form_mapel` (`id_form_mapel`, `id_guru_mapel`, `kelas`, `mapel`, `tanggal_jam_input`, `deskripsi_akademik`, `deskripsi_sikap`) VALUES
-(6, 15, '7', 'Matematika', '2021-08-19', '-', '-'),
-(7, 16, '9', 'Matematika', '2021-08-19', '-', '-');
-
 -- --------------------------------------------------------
 
 --
@@ -796,6 +788,20 @@ INSERT INTO `kelas` (`id_kelas`, `id_tp`, `nama_kelas`, `id_walas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `notulensi`
+--
+
+CREATE TABLE `notulensi` (
+  `id_notulensi` int(11) NOT NULL,
+  `judul_rapat` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` varchar(10) NOT NULL,
+  `file_notulensi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `role`
 --
 
@@ -894,6 +900,19 @@ INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALU
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `wakakur_infotambahan`
+--
+
+CREATE TABLE `wakakur_infotambahan` (
+  `id_info` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `info` varchar(1000) NOT NULL,
+  `tanggal_terbit` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `wakakur_roster`
 --
 
@@ -903,13 +922,6 @@ CREATE TABLE `wakakur_roster` (
   `semester` varchar(50) NOT NULL,
   `file_roster` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `wakakur_roster`
---
-
-INSERT INTO `wakakur_roster` (`id_roster`, `tahun_ajaran`, `semester`, `file_roster`) VALUES
-(12, '2021 - 2022', 'GANJIL', 'roster-dikonversi4.pdf');
 
 -- --------------------------------------------------------
 
@@ -924,6 +936,19 @@ CREATE TABLE `wakasis` (
   `tanggal_pelanggaran` date NOT NULL,
   `deskripsi_pelanggaran` varchar(1500) NOT NULL,
   `tindakan` varchar(1500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wakasis_infotambahan`
+--
+
+CREATE TABLE `wakasis_infotambahan` (
+  `id_info` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `info` varchar(1000) NOT NULL,
+  `tanggal_terbit` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -967,6 +992,12 @@ ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
+-- Indeks untuk tabel `notulensi`
+--
+ALTER TABLE `notulensi`
+  ADD PRIMARY KEY (`id_notulensi`);
+
+--
 -- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
@@ -991,6 +1022,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indeks untuk tabel `wakakur_infotambahan`
+--
+ALTER TABLE `wakakur_infotambahan`
+  ADD PRIMARY KEY (`id_info`);
+
+--
 -- Indeks untuk tabel `wakakur_roster`
 --
 ALTER TABLE `wakakur_roster`
@@ -1001,6 +1038,12 @@ ALTER TABLE `wakakur_roster`
 --
 ALTER TABLE `wakasis`
   ADD PRIMARY KEY (`id_form_wakasis`);
+
+--
+-- Indeks untuk tabel `wakasis_infotambahan`
+--
+ALTER TABLE `wakasis_infotambahan`
+  ADD PRIMARY KEY (`id_info`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -1022,7 +1065,7 @@ ALTER TABLE `form_walas`
 -- AUTO_INCREMENT untuk tabel `info_khusus`
 --
 ALTER TABLE `info_khusus`
-  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenjang`
@@ -1035,6 +1078,12 @@ ALTER TABLE `jenjang`
 --
 ALTER TABLE `kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `notulensi`
+--
+ALTER TABLE `notulensi`
+  MODIFY `id_notulensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `semester`
@@ -1055,6 +1104,12 @@ ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT untuk tabel `wakakur_infotambahan`
+--
+ALTER TABLE `wakakur_infotambahan`
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `wakakur_roster`
 --
 ALTER TABLE `wakakur_roster`
@@ -1065,6 +1120,12 @@ ALTER TABLE `wakakur_roster`
 --
 ALTER TABLE `wakasis`
   MODIFY `id_form_wakasis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `wakasis_infotambahan`
+--
+ALTER TABLE `wakasis_infotambahan`
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
