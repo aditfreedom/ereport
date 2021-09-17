@@ -1,40 +1,51 @@
 <!-- page content -->
 <div class="right_col" role="main">
-          <div class="">          
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>TAMBAH LAPORAN PELANGGARAN</b></a><br><br>
-    
-    <?php echo form_open_multipart('admin/insert_wakasis');?>
-    <div class="row">
-    <div class="col">
-    <div class="container">
-        
-        <div class="form-group" hidden>
-        <label for=""><b>ID GURU : </b></label>
-        <input type="text" name="id_wakasis" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$this->session->userdata('id_user')?>">
-        </div>  
-        <div class="form-group">
-        <label for=""><b>FILE EXCEL/PDF </b></label>
-        <input type="file" name="file_upload" class="form-control" maxlength="50" placeholder="Nama Siswa & Kelas" required>
-        </div>  
-        <div class="form-group">
-        <label for=""><b>DESKRIPSI </b></label>
-        <input type="text" name="deskripsi_pelanggaran" class="form-control" maxlength="250" placeholder="Ex: Agustus 2021" required>
-        </div>  
+<?php
+  $role=$this->session->userdata('role');
+  $hidden_kepsek="";
+  if ($role=="1") {
+    $hidden_kepsek="hidden";
+  }
+  ?>
+          <div class="">
+          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN BASE CLASS WALI KELAS</b></a><br>
+          <?php foreach ($tp_aktif as $data) : ?>
+            <h3 class="text-primary mb-3 font-weight-bold">TAHUN PELAJARAN AKTIF : <?=$data->nama_tp?></h3>
+          <?php endforeach; ?>
+            <p align="left" <?=$hidden_kepsek?>>
+              <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_laporan_bulanan')?>">TAMBAH LAPORAN BULANAN</a>
+            </p>
 
+            <table class="table table-bordered table-stripped" id="example">
+                <thead class="text-center">
+                  <tr>
+                  <th scope="col">NO</th>
+                    <th scope="col">NAMA WALI KELAS</th>
+                    <th scope="col">KELAS</th>
+                    <th scope="col">PERIODE</th>
+                    <th scope="col">AKSI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 1;
+                  foreach ($laporan as $data) : ?>
+                    <tr class="nomor text-center">
+                    <td scope="row"><?php echo $i; ?></td>
+                      <td scope="row"><b><?php echo $data->nama_user; ?></b></td>
+                      <td scope="row"><?php echo $data->nama_kelas; ?></td>
+                      <td><?php echo $data->periode;  ?></td>
+                     <td><a href="<?=base_url('admin/baca_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-success"><b>BACA REPORT</u></a>
+                         <a <?=$hidden_kepsek?> href="<?=base_url('admin/edit_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-primary"><b>EDIT REPORT</u></a>
+                         <a <?=$hidden_kepsek?> href="<?=base_url('admin/hapus_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-danger"><b>HAPUS REPORT</u></a>
+                    </td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
-        </div>    
-        </div>
-  
-        </div>
-        </div>
-
-        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">TAMBAH LAPORAN PELANGGARAN</button><br><br>
-        </form>
-          
-          
           </div>
    
-
                   </div>
                 </div>
               </div>

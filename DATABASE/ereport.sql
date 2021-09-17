@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Agu 2021 pada 06.33
+-- Waktu pembuatan: 17 Sep 2021 pada 06.48
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -686,6 +686,17 @@ CREATE TABLE `form_mapel` (
   `deskripsi_sikap` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `form_mapel`
+--
+
+INSERT INTO `form_mapel` (`id_form_mapel`, `id_guru_mapel`, `kelas`, `mapel`, `tanggal_jam_input`, `deskripsi_akademik`, `deskripsi_sikap`) VALUES
+(8, 18, '7', 'Civic', '2021-08-20', 'Yobel dan Ferizal selalu tidak tepat waktu menyelesaikan latihan online. Sudah 3x latihan yaitu tugas,quis dan UKD ketiganya diselesaikan dengan tidak tepat waktu. Yang sangat sering adalah Yobel. Hampir ketiga penugasan tersebut di submit melewati deadline dan diingatkan berkali-kali.', 'Mereka menyelesaikan latihannya di sekolah dan menggunakan HP di area sekolah dengan alasan menyelesaikan penugasan Civic.Padahal seharusnya penugasan tersebut diselesakan secara daring . '),
+(9, 15, '5', 'Matematika', '2021-08-19', '-', 'Renal berbohong minta izin ke klinik dengan alasan sakit perut, ternyata dia hanya duduk di tangga sekolah sampai jam pelajaran selesai.'),
+(10, 15, '1', 'Matematika', '2021-08-26', 'Ada beberapa siswa belum paham terhadap materi seperti Gebri, Tamlicha,T. M Zaffa dan M. Fawaz.', 'Gebri dan Tamlicha kedapatan sedang menggunakan HP ketika sedang pembelajaran, sehingga HPnya disita.'),
+(11, 17, '4', 'PENDIDIKAN AGAMA ISLAM', '2021-09-02', 'Setiap siswa mempresentasikan tugasnya.\r\nNaifa sangat menguasai materi, Ghifari, Syauqi, dan Thariq masih membaca teks ketika melakukan presentasi.', 'Sebagian besar siswa memiliki motivasi yang baik dalam belajar, Agil kurang fokus saat belajar. Dan Arayki sama sekali tidak ada motivasinya. Di akhir mapel guru menanyakan sebab kondisi tersebut pada Arayki dan menasehatinya untuk mengubah perilaku yang kurang baik itu.'),
+(12, 17, '4', 'Bahasa Arab', '2021-09-16', 'Sebagian besar siswa sudah mampu menuliskan kosa kata bahasa Arab dengan benar.\r\nHanya beberapa yang belum memahami teori dengan baik seperti Awfa, Arril, Ghifari, Arayki.', 'Untuk motivasi dan sikap sangat baik dan begitu bersemangat kecuali Arayki izin ke toilet 10 menit diberikan guru, namun baru kembali setelah 20 menit, dan guru mapel mendapat kiriman foto dari ibu Fida bahwa Arayki masuk ke Serba guna.\r\nArayki sangat cuek dan tidak fokus dalam belajar dan terkesan kurang sopan.');
+
 -- --------------------------------------------------------
 
 --
@@ -716,7 +727,32 @@ INSERT INTO `form_walas` (`id_form_walas`, `id_walas`, `kelas`, `tanggal`, `wakt
 (5, 10, '4', '2021-08-16', '07:45:00', 13, 1, 0, 1, 2, '-Siswa diingatkan untuk meneruskan ke ortu perihal BPP juli dan Agustus.\r\n-Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\r\n-Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\r\n-Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \r\n-Memperketat prokes. ', 'Tidak ad permasalahan dalam kelas..', '-'),
 (6, 14, '8', '2021-08-16', '07:45:00', 21, 0, 1, 0, 0, 'Semua siswa hadir tepat waktu. Wali kelas mengingatkan siswa terkait pembayaran BPP untuk Agustus 2021, piket kelas dan matrikulasi. Wali kelas juga menginfokan kepada siswa bahwa matrikulasi akan berkahir pada minggu ini di tanggal 20 Agustus 2021. Pada minggu berikutnya siswa akan mengikuti post test dan wawancara untuk pemetaan jurusan masing-masing siswa. \r\nSiswa juga diinfokan terkait dengan funtenstic dan fun OSIS dilakukan di kelas masing-masing dan untuk Asmaul Husna akan dimulai Jumat ini tanggal 20 Agustus 2021 pukul 07.30 di lapangan basket dengan membentuk shaf dan menjaga jarak. ', 'Ketika wali kelas masuk ke kelas Stanford, terdapat siswa (Imran yang terlihat oleh wali kelas) yang sedang menggunakan HP di dalam kelas dan beberapa siswa langsung menyimpan kembali ketika wali kelas sudah berada di kelas.', 'Wali kelas mengingatkan dan menegur terlebih dahulu siswa tersebut. Apabila masih berkelanjutan maka HP akan diambil oleh wali kelas dan diberikan ke Wakasis.'),
 (7, 8, '1', '2021-08-16', '07:45:00', 16, 0, 0, 1, 0, 'Guru menanyakan kabar siswa lalu sharing berbagai issue terkait kondisi saat pandemi dan memotivasi siswa untuk semangat dalam belajar dan selalu menjaga prokes. Kemudian menginfokan beberapa pengumuman sekolah terkait BPP, kegiatan Funtestic, dan Asmaul Husna yang akan dilaksanakan pada hari Jum\'at.', 'Sejauh ini belum ada masalah yang serius dikelas, terkait kebersihan dan kerapihan kelas semua siswa sudah tau hak dan kewajiban yang harus mereka laksanakan.  ', 'Untuk disiplin kehadiran, pakaian, penampilan, dan sikap siswa wali kelas akan selalu mengingatkan apabila ada siswa yang melanggar.'),
-(8, 9, '7', '2021-08-16', '07:30:00', 8, 2, 1, 1, 0, 'Baseclass berjalan lancar, wali kelas mengingatkan tentang BPP, peraturan sekolah dan prokes. Pada hari ini masih ada siswa yang datang terlambat sebanyak dua orang.', 'Tidak ada permasalahan, namun masih ada siswa yang datang terlambat.', 'Wali kelas mengingatkan siswa untuk hadir tepat waktu di sekolah.');
+(8, 9, '7', '2021-08-16', '07:30:00', 8, 2, 1, 1, 0, 'Baseclass berjalan lancar, wali kelas mengingatkan tentang BPP, peraturan sekolah dan prokes. Pada hari ini masih ada siswa yang datang terlambat sebanyak dua orang.', 'Tidak ada permasalahan, namun masih ada siswa yang datang terlambat.', 'Wali kelas mengingatkan siswa untuk hadir tepat waktu di sekolah.'),
+(10, 12, '6', '2021-08-16', '07:45:00', 20, 2, 0, 1, 0, '*Baseclass info*:\r\n\r\n1. Mengingatkan siswa untuk meneruskan ke ortu perihal BPP juli dan Agustus.\r\n2. Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\r\n3. Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\r\n4. Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \r\n6. Memperketat prokes. \r\n7. CIVIC online di hari sabtu', 'Aman', '-'),
+(11, 13, '9', '2021-08-16', '07:45:00', 21, 0, 0, 0, 0, 'Sikap siswa kelas Harvard masih sangat baik. semangat mengikuti pelajaran di kelas juga sudah semakin tinggi. begitu pula tanggung jawab yang dilimpahkan kepada mereka. Oleh karena itu, saya sebagai wali kelas tersebut sangat mudah dalam berkomunikasi untuk menyampaikan informasi kepada mereka. ', 'Sejauh ini, kelas Harvard belum menunjukkan maslah yang ber-arti. ', 'Dalam kegiatan base clas, wali kelas bertanya tentang kendala yang dialami siswa selama KBM maupun di luar kelas. Siswa Harvard memberitahukan bahwa selama ini mereka belum memiliki kendala di sekolah Sukma Bangsa Bireuen.'),
+(12, 11, '5', '2021-08-09', '07:30:00', 17, 0, 2, 0, 0, 'Base class dimulai dengan pembukaan berupa salam dan menanyakan kabar seluruh peserta didik. saat base class berlangsung guru menanyakan apakah ada persoalan yang dihadapi siswa selama mengikuti PBM dan kendala-kendala yang dihadapi dengan sesama peserta didik. guru mengingatkan tentang kewajiban siswa mengikuti seluruh peraturan sekolah termasuk datang tepat waktu. guru juga menanyakan apakah semua tugas online dan yang luring telah di selesaikan apabila belum guru mengingatkan agar segera menyelesaikannyanya jangan sampai menumpuk di akhir waktu nantinya. menjaga kebersihan kelas adalah kewajiban dan tanggung jawab semua warga kelas.', '-', '-'),
+(13, 14, '8', '2021-08-23', '07:45:00', 19, 0, 3, 0, 0, 'Wali kelas menginfokan kepada siswa untuk menerapkan prokes saat berada di kantin sekolah Sukma Bangsa Bireuen. Selain itu wali kelas juga memeberitahukan kepada siswa terkait penggunaan HP di lingkungan skolah. Setiap siswa tidak diperbolehkan menggunakan HP ketika berada di lingkungan sekolah jika tanpa pengawasan dari guru walaupun untuk keperluan tugas yang sedang diselesaikan. Jika terjadi pelanggaran maka HP akan di sita. \r\nSiswa juga diinformasikan terkait Sukma Idol yang telah diselenggarakan pada Sabtu, 21 Agustus 2021. Bagi siswa yang tidak mengikuti Idol maka akan tetap mengirimkan video menyayi ke link yang disediakan.', 'Terdapat beberapa siswa yang tidak hadir ketika diselenggarakannya Sukma Idol pada Sabtu, 21 Agustus 2021. Siswa tersebut yaitu Zulfahmi (sakit dan sudah memberi info ke wali kelas), Aulia Rizqullah (sakit dan sudah memberi info ke wali kelas), Mughli Rasya (memberi info izin ke wali kelas sudah pukul 12.16.), dan Fariq (tidak memberikan info sama sekali).', 'Untuk Mughli dan Fariq ditanyakan langsung alasannya karena Mughli menginformasikan sendiri ke wali kelas dan telat infonya. Alasan Mughli karena kehabisan paket. \r\nUntuk Fariq juga ditanyakan langsung alasannya dan dengan santainya Fariq menjawab \"Saya memang gak mau ikut bu\". \r\nMendengar pernyataan dari kedua siswa tersebut, wali kelas menginfokan bahwa yang tidak ikut tetap mengirimkan video menyayi ke link yang disediakan.\r\nUntuk Fariq, wali kelas juga sudah memberitahukan wakasis terkait dengan pernyataan dari Fariq tersebut.'),
+(14, 8, '1', '2021-08-23', '07:45:00', 14, 1, 1, 1, 0, 'Kegiatan pertama berdoa dan menyapa siswa, menanyakan kondisi siswa.\r\nSelanjutnya menyampaikan pengumuman terkait lomba dan memotivasi siswa untuk ikut berpartisipasi dalam lomba agustusan.\r\nMembaca rekapan siswa yang terlambat dan meminta siswa agar lebih cepat hadir ke sekolah.', 'Seorang siswa bernama Fawwaz datang terlambat dengan alasan hujan, mengikuti base class sesaat lalu izin dan tidak kembali sampai berakhir kegiatan. Kurang sopan dalam sikap dan tutur kata.', 'Menegur dan memberikan peringatan bahwa tidak ada izin keterlambatan lagi baginya karena alasan yang diberikan hari ini tidak benar.'),
+(15, 11, '5', '2021-08-23', '07:30:00', 15, 1, 2, 0, 0, 'hari ini siswa bersemangat kesekolah karena semua dapat merespon dengan baik apa yang saya tanyakan. base class pagi ini di mulai dengan salam kemudian menanyakan apa kabar siswa baru kemudian masuk ke info-info yang harus disampaikan ke siswa seperti peraturan terlambat, HP dan sebagainya. baseclass kemudian dilanjutkan dengan sesi tanya jawab mengenai tugas, remedial dan yang berhubungan dengan aktivitas belajar disekolah. kegiatan ditutup dengan siswa di berikan motivasi agar semangat kesekolah dan menyelasaikan tugas-tugas yang tertunda.', 'tidak ada', 'tidak ada'),
+(17, 9, '7', '2021-08-23', '07:45:00', 8, 2, 2, 0, 0, 'Baseclass minggu ini  menginformasikan siswa untuk memperketat kesehatan dan menjaga kesehatan dan juga mengingatkan kembali tentang peraturan sekolah. Siswa juga dihimbau untuk mengikuti kegiatan lomba 17 agustus, karena merupakan kegiatan yang wajib diikuti siswa. Lima belas menit terkahir baseclass siswa mengadakan latihan untuk penampilan asmaul husna pada jumat ini.', 'Sebagian  siswa tidak mau berpartisipasi dalam kegiatan asmaul husna pada hari jumat, mereka tidak mau ditunjuk menjadi pengisi kegiatan tersebut, seperti pembaca doa dan yang menyampaikan tausiah.', 'Menunggu keputusan siswa untuk mengajukan diri sebagai pengisi kegiatan tersebut, karena semua siswa wajib terlibat'),
+(18, 12, '6', '2021-08-23', '07:45:00', 17, 2, 4, 0, 0, 'Info tentang:\r\nPembayaran  BPP bagi yang menunggak\r\nSanksi bagi yang terlambat 3 x atau lebih akan mengepel lantai kelas\r\nKetertiban dan kedisiplinan di sekolah supaya dapat menjadi contoh atau panutan untuk adik-adik kelas', 'Aman', '-'),
+(19, 10, '4', '2021-08-23', '07:45:00', 14, 0, 1, 2, 0, 'siswa diingatkan kembali masalah prokes, lomba kemerdekaan yang wajib diikuti seluruh siswa. dan outstanding BPP. selain itu siswa diberikan motivasi belajar agar lebih semangat dalam kelas.  dan memberikan nasehat untuk tidak datang terlambat dan memperingatkan siswa yang beberapa kali datang terlambat.', '-', '-'),
+(20, 8, '1', '2021-08-30', '07:45:00', 17, 0, 0, 0, 0, 'Kegiatan di awali dengan membaca surah Al Insyirah berharap segala urusan di mudahkan oleh Allah.\r\nLalu guru menanyakan kabar siswa dan menghitung jumlah kehadiran siswa lalu mengucapkan terima kasih atas kehadiran yang tepat waktu dan hadir semuanya.\r\nLalu guru menceritakan pengalaman spiritual terkait motivasi menjadi orang baik.\r\nKemudian menginfokan berbagai informasi sekolah dan lainnya.\r\nDi akhir guru menasehati siswa untuk terus menjaga prokes apabila ingin bersekolah secara tatap muka.', 'Tidak ada masalah serius di kelas, apabila ada siswa melakukan pelanggaran pada salah satu mapel, maka wali kelas dapat melihat di e-report dan berkoordinasi dengan guru mapel tersebut. ', 'Wali kelas akan menegur dan menasehati siswa yang lalai dalam tugas dan yang melakukan pelanggaran.\r\nSejauh ini sebagian besar siswa cukup solid dan konsisten pada aturan.'),
+(21, 14, '8', '2021-08-30', '07:45:00', 20, 0, 0, 0, 0, 'Siswa diingatkan kembali perihal pembayaran BPP untuk bulan Agustus. Siswa juga di tegaskan kembali untuk serius dan komitmen dalam mengikuti ekskul yang sudah dipilih melihat selama ini partisipasi siswa kelas X sangat kurang di ekskul. \r\nSelain itu, dikarenakan siswa kelas X baru memulai penjurusan mulai hari ini, maka wali kelas mengarahkan siswa untuk memilih ketua kelas beserta anggotanya. Hasil pemilihan dari kesepakatan yaitu:\r\nKetua : M. Raseuki\r\nWakil : Nayla Hafiza\r\nSekretaris : Syafa Maulidna\r\nBendahara : Adel Sausan \r\nPJ. Kebersihan : Aulia Rizqullah\r\nUntuk list anggota piket kelas akan diset oleh Sekretaris dan PJ Kebersihan kelas.', 'Peningkatan partisipasi siswa di eksul yang dipilih.', 'Guru mengingatkan siswa kembali perihal partisipasi siswa di ekskul wajib akan menjadi pertimbangan kenaikan kelas.'),
+(22, 9, '7', '2021-08-30', '07:45:00', 10, 2, 0, 0, 0, 'Baseclass berjalan lancar, wali kelas menginformasikan tentang Outstanding BPP, bagi siswa yang belum melunaskan BPP di bulan juli dan agustus maka siswa tersebut tidak bisa mengikuti semua penilaian yang diberikan oleh guru.', 'masih ada siswa yang datang terlambat', 'Ditegur agar bisa hadir tepat waktu ke sekolah'),
+(23, 12, '6', '2021-08-30', '07:45:00', 22, 0, 1, 0, 0, 'Pemberitahuan\r\n1. Penunggakan BPP2.\r\n2. Disiplin dalam mematuhi prokes, bagi yg melanggar beberapa kali akan ada pemanggilan wali siswa\r\n3. Penggunaan HP, bagi yg melanggar HP disita\r\n4. Penilaian harian yang diakukan akan langsung tampil di info siswa  dan elearning.\r\n5. Siswa dihimbau untuk segera remedial. \r\n6..  Class Project akan dimulai di bulan September.\r\n', '-', '-'),
+(24, 8, '1', '2021-09-06', '07:45:00', 16, 0, 0, 1, 0, 'Salah seorang siswa memimpin untuk berdoa. Lalu guru menanyakan kabar siswa kemudian berbagi ilmu dari pengajian untuk motivasi siswa beribadah.\r\nLalu menginfokan pengumuman sekolah.', 'Semua siswa bersikap dan belajar dengan baik. Belum ada masalah terkait kondisi kelas.', 'Setiap pertemuan guru selalu memotivasi dan menasehati siswa.'),
+(25, 13, '9', '2021-09-06', '07:45:00', 20, 0, 3, 0, 0, 'Siswa kelas Harvard masih sangat baik menjalankan tugas dan kewajiban yang dibebankan kepada masing-masing siswa-siswa.', 'Sejauh ini belum ada masalah yang menuntut wali kelas untuk turun tangan menyelesaikan masalah. Ada 5 siswa yang tidak membawa tumbler.', 'Hari ini, guru memanggil 5 orang siswa yang tidak membawa tumbler.'),
+(26, 14, '8', '2021-09-06', '07:45:00', 20, 0, 0, 0, 1, 'Siswa diinformasikan oleh wali kelas terkait dengan pembayaran BPP tepat waktu tidak melewati bulan yang sedang berjalan karena pembayaran di luar waktunya maka akan berdampak pada pemakaian e learning siswa. Mulai tanggal 13 September peralatan makan tidak lagi disediakan di kantin untuk mencegah penularan virus-virus maka siswa membawa peralatan makan masing-masing. Selain itu, setiap siswa dan warga sekolah menjaga kebersihan sekolah dengan tidak membuang sampah sembarangan. Wali kelas juga mengingatkan siswa untuk menyelesaikan struktur kelas dan jadwal piket yang ditempelkan di karton di depan kelas. ', 'Laporan dari Wakasis bahwa Shufia Zuhra mengikuti lomba 17an yaitu cipta puisi namun puisi yang diciptakan merupakan hasil plagiat dari sumber lainnya. Hal ini belum tersampaikan ke yang bersangkutan karena wali kelas menerima info ini setelah base class.', 'Rencananya untuk siswa tersebut akan dipanggil oleh walas diingatkan terlebih dahulu agar tidak terulang untuk ke depannya.'),
+(27, 12, '6', '2021-09-06', '07:45:00', 20, 2, 0, 1, 0, '1. Perlu lebih bertanggung jawab dalam menjaga kebersihan\r\n2. Mulai membawa kotak makan dan tumbler masing2\r\n3. Alat kebersihan tanggung jawab masing2. Hilang, wajib mengganti dengan dana kas kelas.\r\n4. Kesekolah wajib BERSEPATU walaupun hari Sabtu\r\n5. Penunggakan BPP\r\n6. Bimbel UTBK dimulai hari senin 6 september 2021\r\n7. Disiplin memakai masker dan jaga jarak', '-', '-'),
+(28, 10, '4', '2021-09-06', '07:45:00', 16, 0, 0, 1, 0, '-Siswa diingatkan kembali tentang keterlambatan, OS BPP , menjaga alat kebersihan dan assessment yang akan dilaksanakan tanggal 8 sampai dengan 9 desember. \r\n- kemudian siswa juga diingtakan untuk membawa lunch box dan tumbler bagi yang membawa bekal kesekolah.', '- masih ada beberapa siswa yang terlambat seperti bariq, arayki, arril, zian, \r\n- motivasi belajar yang kurang pada mata pelajaran agama seperti agil dan arayki ', '- siswa diberi peringatan untuk datang secara tepat waktu dan bagi yg sering telat dinerikan peringatan khusus\r\n- siswa diberi nasehat agar lebih semangat belajar dan alasan kenapa motivasi belajar menurun dikelas xi '),
+(29, 8, '1', '2021-09-13', '07:45:00', 17, 0, 1, 0, 0, 'Salah seorang siswa memimpin bacaan doa pembuka belajar. Guru menyapa dan menanyakan kondisi siswa. Guru memberikan penjelasan tentang doa belajar dan memceritakan sejarah nabi Musa. Lalu memberikan beberapa pengumuman sekolah dan meminta siswa mengisi form online ekskul.', 'Selama bulan September belum ada permasalahan serius di kelas.', 'Guru selalu memantau perkembangan siswa secara langsung atau online dan memberikan teguran lisan apabila terjadi pelanggaran.'),
+(30, 13, '9', '2021-09-13', '07:45:00', 22, 0, 0, 1, 0, 'Kebersihan kelas dan kerapian kelas X HARVARD terjaga dengan baik. Siswa kelas X HARVARD sangat menjaga hubungan baik dengan guru dan teman sekelas. Begitu pula tolong-menolong di kelas X HARVARD, sepertinya mulai terbentuk.', 'Ada beberapa siswa kelas HARVARD yang masih memiliki sikap bercanda yang mengarah pada bentuk menyorak-nyoraki teman yang dipanggil guru.', 'Siswa tersebut langsung diingatkan di kelas ketika baseclass berlangsung. Hal ini dilakukan untuk mengingatkan semua siswa siswa kelas HARVARD.'),
+(31, 10, '4', '2021-09-13', '07:45:00', 15, 1, 0, 1, 0, '- Siswa dibagikan Surat persetujuan orang tua perihal vaksinasi siswa. Surat wajib dikembalikan ke sekolah pada hari Selasa, 14 September ke wali kelas masing2. \r\nMengingatkan kembali BPP bulan September agar siswa dapat mengikuti ukd.  \r\n-Esai bagi yang tidak mengikuti lomba agustus deaaline : Senin, 13 September 2021, jam 00.00\r\n-Kelas wajib dikunci setiap hari. Dengan kunci baru yang telah dibagikan.\r\n-Persiapan pelaksanaan AN akan dilaksanakan sekitar akhir bulan september', 'Masih ada siswa yang terlambat, yaitu Zian', 'Diberikan nasehat dan menanyakan alasan keterlambatan'),
+(32, 12, '6', '2021-09-13', '07:45:00', 20, 1, 1, 1, 0, 'Yang dibahas : \r\n1. Surat persetujuan orang tua perihal vaksinasi siswa. Surat wajib dikembalikan ke sekolah pada hari Selasa, 14 September ke wali kelas masing2. \r\n2. BPP bulan September. \r\n3. Prokes tetap dilaksanakan. \r\n4. Membawa Meal box dan tumbler masing2\r\n5. Perhatikan roster khusus Jumat 7.30. \r\n6. Keterlambatan akan tetap di catat dan ditindak lanjuti.\r\n7. Esai bagi yang tidak mengikuti lomba agustus deaaline : Senin, 13 September 2021, jam 00.00\r\n8. Kelas wajib dikunci setiap hari\r\n9. Tes Prasmul inshallah akan dilaksanakan di hari minggu, 3 Oktober. \r\n', '-', '-'),
+(33, 14, '8', '2021-09-13', '07:45:00', 21, 0, 0, 0, 0, 'Siswa diinfokan untuk membawa peralatan makan sendiri karena mulai 13 September 2021 kantin sudah tidak lagi menyediakan peralatan makan. Bagi siswa yang tidak mengikuti Lomba agustusan segera menyelesaikan essay nya. Siswa juga diingatkan untuk tidak menggunakan HP selain atas instruksi dari guru.', 'Penggunaan HP lebih diperketat kembali agar anak-anak tidak lalai dengan HP secara sembunyi-sembunyi tanpa pantauan guru.', 'Ditegur, diingatkan dan jika tidak diindahkan disita HP dan diserahkan ke Wakasis.'),
+(34, 9, '7', '2021-09-06', '07:45:00', 9, 2, 1, 0, 0, 'Base class berjalan lancar, guru menyampaikan terkait Outstanding BPP. Tidak masalah yang berarti', 'tidak ada', '-'),
+(35, 9, '7', '2021-09-13', '07:45:00', 11, 0, 1, 0, 0, 'Baseclass berjalan lancar , guru mengingatkan lagi pembayaran BPP karena udah melewati tanggal pembayaran, juga mengingatkan kembali terkait peraturan sekolah.', 'Siswa yang tidak mengikuti lomba 17 agustus diharuskan membuat essai, namun belum diselesaikan.', 'Diingatkan untuk segera di kumpulkan essainya.');
 
 -- --------------------------------------------------------
 
@@ -736,7 +772,11 @@ CREATE TABLE `info_khusus` (
 --
 
 INSERT INTO `info_khusus` (`id_info`, `judul`, `info`, `tanggal_terbit`) VALUES
-(10, 'Info Base Class 16 Agustus 2021', 'Baseclass info\n\n1. Mengingatkan siswa untuk meneruskan ke ortu perihal BPP juli dan Agustus.\n \n2.Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\n\n3. Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\n\n4. Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \n\n5. Khusus kelas X diingatkan perihal akan berakhirnya matrikulasi dan post test yg akan dilaksanakan serta wawancara untuk penentuan kelas IPA dan IPS\n\n6. Memperketat prokes. \n\n7. CIVIC online di hari sabtu\n\n8. Silahkan tambahkan dengan isu kelas masing2. \n\nThanks ', '2021-08-16');
+(10, 'Info Base Class 16 Agustus 2021', 'Baseclass info\n\n1. Mengingatkan siswa untuk meneruskan ke ortu perihal BPP juli dan Agustus.\n \n2.Funtenstic dikelas masing2 dengan jadwal yang sudah diberikan didampingi guru jam pertama\n\n3. Fun with osis akan dihandle oleh OSIS (osis masuk kelas)\n\n4. Jumat asmaul husna jam 7.30 dilapangan basket dengan sistem duduk shaf. \n\n5. Khusus kelas X diingatkan perihal akan berakhirnya matrikulasi dan post test yg akan dilaksanakan serta wawancara untuk penentuan kelas IPA dan IPS\n\n6. Memperketat prokes. \n\n7. CIVIC online di hari sabtu\n\n8. Silahkan tambahkan dengan isu kelas masing2. \n\nThanks ', '2021-08-16'),
+(12, 'Info Base Class 23 Agustus 2021', '1. Penekanan prokes pada saat makan di kantin. Mulai membiasakan membawa meal box dan tumbler\r\n2. Pelanggaran penggunaan HP tanpa supervisi guru akan DISITA walaupun alasannya mengerjakan tugas yg belum selesai. \r\n3. siswa yang tidak menyelesaikan kewajiban online learning  akan dimasukkan dalam list tatap muka pada hari Sabtu.\r\n4.Mengingatkan bahwa ikut lomba 17 agustusan adalah WAJIB\r\n5. Khusus kls X, siswa yg tidak ikut Sukma Idol tetap harus mengirimkan video nyanyinya. Link akan dberikan segera.\r\n6. Info keterlambatan dr Wakakesiswaan telah di release (silahkan wali kelas cek masing2)\r\n7. Catatan khusus dr Guru bidang studi\r\n8. Siswa yang sakit atau yg dikeluarganya demam dan saat dilakukan swab positif atau reaktif,  harap tidak kesekolah dan mengikuti kbm secara daring saja. wali siswa wajib menginformasikan ke wali kelas. \r\n\r\n\r\nTtd\r\nKepsek. SMA\r\n', '2021-08-23'),
+(14, 'Info Base Class 30 Agustus 2021', '1. Mengingatkan kembali  OS BPP \r\n2. Penilaian harian yang diakukan akan langsung tampil di info siswa  dan elearning.\r\n3. Siswa dihimbau untuk segera remedial. \r\n4.  Class Project akan dimulai di bulan September.\r\n5. Siswa yang tidak mengikuti prokes dan sudah pernah ditegur beberapa kali akan dilakukan pemanggilan terhadap siswa dan orang tua untuk mengikuti pembelajaran secara DARING.\r\n6. Penggunaan HP tanpa supervisi guru meskipun alasannya mengerjakan tugas tetap akan disita.\r\n7. Ekskul wajib menjadi syarat kenaikan kelas\r\n8. Program  pertukaran pelajar YES\r\n\r\nKhusus kelas X\r\na. Partisipasi ekskul masih sangat kurang. \r\n\r\nKhusus kelas XI: \r\na. Silahkan konfirmasi ulang siswa2 yang sebelumnya mendaftar kelas Cambridge ke bu Rika\r\n\r\nKhusus kelas XII: \r\na. Tes Bakti Universitas Prasetya Mulya bila masih ada yang ingin mendaftar dipersilahkan dan disarankan untuk mengikuti tes \r\nb. Bimbingan UTBK akan segera dimulai di bulan September\r\n', '2021-08-30'),
+(15, 'Info Base Class 6 September  2021', 'Umum:\r\n1. Perlu lebih bertanggung jawab dengan sampah yg dibuang sembarangan saat kegiatan hari jumat.\r\n2. Mulai membawa kotak makan dan tumbler masing2\r\n3. Alat kebersihan tanggung jawab masing2. Hilang, wajib mengganti dengan dana kas kelas.\r\n4. Kesekolah wajib BERSEPATU walaupun hari Sabtu\r\n5. OS BPP\r\n6. Bila ada yg berminat dengan taekwondo dan tahfiz/tahsin silahkan hub. bu Asrita. \r\n\r\nXI  \r\nGladi Berrsih Assesmen Nasional akan dilaksanakan pada tanggal 8 - 9 September 2021.\r\nMulai pukul 07.30. Siswa wajib hadir\r\n\r\nXII\r\nKelas UTBK akan dimulai sejak tanggal 6 Sept 2021 dan jdwal bisa dilihat di info wakakur. \r\n', '2021-09-05'),
+(16, 'Info Base Class 13 September  2021', 'Umum\r\n\r\n1. Surat persetujuan orang tua perihal vaksinasi siswa. Surat wajib dikembalikan ke sekolah pada hari Selasa, 14 September ke wali kelas masing2. \r\n2. Mengingatkan kembali BPP bulan September. \r\n3. Prokes tetap dilaksanakan. \r\n4. Membawa Meal box dan tumbler masing2\r\n5. Perhatikan roster khusus Jumat 7.30. \r\n6. Keterlambatan akan tetap di catat dan ditindak lanjuti.\r\n7. Pengisian form ekskul untuk pendataan terbaru (bisa diarahkan segera diisi selama baseclass)\r\n8. Esai bagi yang tidak mengikuti lomba agustus deaaline : Senin, 13 September 2021, jam 00.00\r\n9. Kelas wajib dikunci setiap hari\r\n\r\nXI\r\n1. Pelaksanaan AN akan dilaksanakan sekitar tanggal 27 - 28 September atau 29- 30 September.\r\n\r\nXII\r\n1. Tes Prasmul inshallah akan dilaksanakan di hari minggu, 3 Oktober. \r\n2. Wali kelas dihimbau mengarahkan siswa mengisi di sesi baseclass bila ada yg belum mengisi.', '2021-09-12');
 
 -- --------------------------------------------------------
 
@@ -788,6 +828,57 @@ INSERT INTO `kelas` (`id_kelas`, `id_tp`, `nama_kelas`, `id_walas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `laporan_bulanan_walas`
+--
+
+CREATE TABLE `laporan_bulanan_walas` (
+  `id_laporan` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  `id_walas` varchar(255) NOT NULL,
+  `periode` varchar(250) NOT NULL,
+  `jlh_laki` varchar(11) DEFAULT NULL,
+  `jlh_laki_islam` varchar(11) DEFAULT NULL,
+  `jlh_laki_kristen` varchar(11) DEFAULT NULL,
+  `jlh_laki_katolik` varchar(11) DEFAULT NULL,
+  `jlh_laki_budha` varchar(11) DEFAULT NULL,
+  `jlh_laki_hindu` varchar(11) DEFAULT NULL,
+  `jlh_perempuan` varchar(11) DEFAULT NULL,
+  `jlh_perempuan_islam` varchar(11) DEFAULT NULL,
+  `jlh_perempuan_kristen` varchar(11) DEFAULT NULL,
+  `jlh_perempuan_katolik` varchar(11) DEFAULT NULL,
+  `jlh_perempuan_budha` varchar(11) DEFAULT NULL,
+  `jlh_perempuan_hindu` varchar(11) DEFAULT NULL,
+  `total` varchar(11) DEFAULT NULL,
+  `jlh_hadir_tpt_waktu` varchar(11) DEFAULT NULL,
+  `persen_hadir_tpt_waktu` varchar(11) DEFAULT NULL,
+  `keterangan_hadir_tpt_waktu` varchar(500) DEFAULT NULL,
+  `jlh_terlambat` varchar(11) DEFAULT NULL,
+  `persen_terlambat` varchar(11) DEFAULT NULL,
+  `keterangan_terlambat` varchar(500) DEFAULT NULL,
+  `jlh_sakit` varchar(11) DEFAULT NULL,
+  `persen_sakit` varchar(11) DEFAULT NULL,
+  `ket_sakit` varchar(500) DEFAULT NULL,
+  `jlh_izin` varchar(11) DEFAULT NULL,
+  `persen_izin` varchar(11) DEFAULT NULL,
+  `ket_izin` varchar(500) DEFAULT NULL,
+  `jlh_alpa` varchar(11) DEFAULT NULL,
+  `persen_alpa` varchar(11) DEFAULT NULL,
+  `ket_alpa` varchar(500) DEFAULT NULL,
+  `kondisi_akademik` varchar(2000) DEFAULT NULL,
+  `kondisi_psiko` varchar(2000) DEFAULT NULL,
+  `kondisi_fisik` varchar(2000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `laporan_bulanan_walas`
+--
+
+INSERT INTO `laporan_bulanan_walas` (`id_laporan`, `id_kelas`, `id_walas`, `periode`, `jlh_laki`, `jlh_laki_islam`, `jlh_laki_kristen`, `jlh_laki_katolik`, `jlh_laki_budha`, `jlh_laki_hindu`, `jlh_perempuan`, `jlh_perempuan_islam`, `jlh_perempuan_kristen`, `jlh_perempuan_katolik`, `jlh_perempuan_budha`, `jlh_perempuan_hindu`, `total`, `jlh_hadir_tpt_waktu`, `persen_hadir_tpt_waktu`, `keterangan_hadir_tpt_waktu`, `jlh_terlambat`, `persen_terlambat`, `keterangan_terlambat`, `jlh_sakit`, `persen_sakit`, `ket_sakit`, `jlh_izin`, `persen_izin`, `ket_izin`, `jlh_alpa`, `persen_alpa`, `ket_alpa`, `kondisi_akademik`, `kondisi_psiko`, `kondisi_fisik`) VALUES
+(6, 4, '10', 'Agustus 2021', '5', '5', '0', '0', '0', '0', '7', '7', '0', '0', '0', '0', '12', '12', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `notulensi`
 --
 
@@ -798,6 +889,14 @@ CREATE TABLE `notulensi` (
   `waktu` varchar(10) NOT NULL,
   `file_notulensi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `notulensi`
+--
+
+INSERT INTO `notulensi` (`id_notulensi`, `judul_rapat`, `tanggal`, `waktu`, `file_notulensi`) VALUES
+(5, 'Rapat Mingguan SMA', '2021-08-14', '08:00', 'MEETING_14_AUGUST_2021.pdf'),
+(6, 'Rapat Mingguan SMA', '2021-08-24', '14:15', 'Minutes_of_Meeting,_24_Agustus_2021.pdf');
 
 -- --------------------------------------------------------
 
@@ -884,7 +983,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALUES
 (2, 'ADITYA AZIZ FIKHRI, S.Tr.Kom', '10186018', 'bc375f11307eac440f9f5f36e5e15404', 0),
-(5, 'KARTIKA HAKIM, S.S., MA', '10151003', '6304847204cc728b80efa8eb1290a69a', 1),
+(5, 'KARTIKA HAKIM, S.S., MA', '10151003', '59648ef7321f9a5522d97b3d22f5ae7f', 1),
 (6, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 5),
 (7, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 4),
 (8, 'HELMIATI, S.Pd. I', '10061019', 'c4ce452d7140ad81af7dfe82b2caac24', 3),
@@ -895,7 +994,15 @@ INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALU
 (13, 'MUKHLISANUR, S. Pd', '10121083', 'b22b76f444c7930f3e3fe47ddfba7600', 3),
 (14, 'DESTYA DARSIANA, S.SOS', '10206053', 'a828e1eca5b1d070a10599b5ebe11a5c', 3),
 (15, 'VERA WAHYUNI, S.Si.', '11161003', '55a61dec5a3418c9268f5f0e96db1aae', 2),
-(16, 'RAHMI, S.Pd.Gr', '10211004', '4e86efecd89907872cae4c96c58adcad', 2);
+(16, 'RAHMI, S.Pd.Gr', '10211004', '4e86efecd89907872cae4c96c58adcad', 2),
+(17, 'HELMIATI, S.Pd. I', '10061019', 'c4ce452d7140ad81af7dfe82b2caac24', 2),
+(18, 'DESTYA DARSIANA, S.SOS', '10206053', 'a828e1eca5b1d070a10599b5ebe11a5c', 2),
+(19, 'DIAN FERDIANSYAH, M.A', '10141001', '69e3512f7d6ff609c8b727e541e22187', 2),
+(20, 'NURDIANA, S.Pd', '10201003', '5c46f9f1ee5a4d62d352c0ffe3a95ed9', 2),
+(21, 'MUKHLISANUR, S. Pd', '10121083', 'b22b76f444c7930f3e3fe47ddfba7600', 2),
+(22, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 2),
+(23, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 2),
+(24, 'KARTIKA HAKIM, S.S., MA', '10151003', '59648ef7321f9a5522d97b3d22f5ae7f', 2);
 
 -- --------------------------------------------------------
 
@@ -923,6 +1030,15 @@ CREATE TABLE `wakakur_roster` (
   `file_roster` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `wakakur_roster`
+--
+
+INSERT INTO `wakakur_roster` (`id_roster`, `tahun_ajaran`, `semester`, `file_roster`) VALUES
+(13, '2021-2022', 'GANJIL', 'Roster_Effective_16_Agustus_2021.pdf'),
+(14, '2021-2022', 'GANJIL', 'Update_Roster_Effective_30_Agustus_2021.pdf'),
+(16, 'UTBK 2021-2022', 'GANJIL', 'BIMBEL_UTBK_2021_(1).xlsx');
+
 -- --------------------------------------------------------
 
 --
@@ -932,10 +1048,8 @@ CREATE TABLE `wakakur_roster` (
 CREATE TABLE `wakasis` (
   `id_form_wakasis` int(11) NOT NULL,
   `id_wakasis` int(11) NOT NULL,
-  `nama_siswa` varchar(500) NOT NULL,
-  `tanggal_pelanggaran` date NOT NULL,
-  `deskripsi_pelanggaran` varchar(1500) NOT NULL,
-  `tindakan` varchar(1500) NOT NULL
+  `file_upload` varchar(500) NOT NULL,
+  `deskripsi_pelanggaran` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -990,6 +1104,12 @@ ALTER TABLE `jenjang`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
+
+--
+-- Indeks untuk tabel `laporan_bulanan_walas`
+--
+ALTER TABLE `laporan_bulanan_walas`
+  ADD PRIMARY KEY (`id_laporan`);
 
 --
 -- Indeks untuk tabel `notulensi`
@@ -1053,19 +1173,19 @@ ALTER TABLE `wakasis_infotambahan`
 -- AUTO_INCREMENT untuk tabel `form_mapel`
 --
 ALTER TABLE `form_mapel`
-  MODIFY `id_form_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_form_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `form_walas`
 --
 ALTER TABLE `form_walas`
-  MODIFY `id_form_walas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_form_walas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `info_khusus`
 --
 ALTER TABLE `info_khusus`
-  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenjang`
@@ -1077,13 +1197,19 @@ ALTER TABLE `jenjang`
 -- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `laporan_bulanan_walas`
+--
+ALTER TABLE `laporan_bulanan_walas`
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `notulensi`
 --
 ALTER TABLE `notulensi`
-  MODIFY `id_notulensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_notulensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `semester`
@@ -1101,7 +1227,7 @@ ALTER TABLE `tp`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `wakakur_infotambahan`
@@ -1113,13 +1239,13 @@ ALTER TABLE `wakakur_infotambahan`
 -- AUTO_INCREMENT untuk tabel `wakakur_roster`
 --
 ALTER TABLE `wakakur_roster`
-  MODIFY `id_roster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_roster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `wakasis`
 --
 ALTER TABLE `wakasis`
-  MODIFY `id_form_wakasis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_form_wakasis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `wakasis_infotambahan`

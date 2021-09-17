@@ -22,8 +22,8 @@
                   <tr>
                   <th scope="col">NO</th>
                     <th scope="col">NAMA WAKASIS</th>
-                    <th scope="col">SISWA YANG MELANGGAR</th>
-                    <th scope="col">TANGGAL PELANGGARAN</th>
+                    <th scope="col">FILE CATATAN PELANGGARAN</th>
+                    <th scope="col">DESKRIPSI</th>
                     <th scope="col">AKSI</th>
                   </tr>
                 </thead>
@@ -33,11 +33,11 @@
                     <tr class="nomor text-center">
                     <td scope="row"><?php echo $i; ?></td>
                       <td scope="row"><b><?php echo $data->nama_user; ?></b></td>
-                      <td scope="row"><?php echo $data->nama_siswa; ?></td>
-                      <td><?php echo $data->tanggal_pelanggaran;  ?></td>
-                     <td><a  href="<?=base_url('admin/baca_wakasis/').$data->id_form_wakasis?>" class="btn btn-sm btn-success"><b>BACA REPORT</u></a>
-                        <a <?=$hidden_kepsek?> <?=$hidden_walas?> href="<?=base_url('admin/edit_wakasis/').$data->id_form_wakasis?>" class="btn btn-sm btn-primary"><b>EDIT REPORT</u></a>
-                        <a <?=$hidden_kepsek?> <?=$hidden_walas?> href="<?=base_url('admin/hapus_wakasis/').$data->id_form_wakasis?>" class="btn btn-sm btn-danger"><b>HAPUS REPORT</u></a>
+                      <td scope="row"><?php echo $data->file_upload; ?></td>
+                      <td><?php echo $data->deskripsi_pelanggaran;  ?></td>
+                     <td>
+                     <a href="<?=base_url('file/pelanggaran/').$data->file_upload?>" class="btn btn-sm btn-success"><b>UNDUH</u></a>
+                        <a <?=$hidden_kepsek?> <?=$hidden_walas?> href="<?=base_url('admin/hapus_wakasis/').$data->id_form_wakasis?>" class="btn btn-sm btn-danger"><b>HAPUS</u></a>
                     </td>
                     </tr>
                     <?php $i++; ?>

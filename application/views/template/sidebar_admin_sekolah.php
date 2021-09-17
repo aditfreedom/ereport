@@ -36,7 +36,7 @@
                 <li><a <?=$hidden_mapel?> <?=$hidden_wakakur?> <?=$hidden_wakasis?>><i class="fa fa-edit"></i> WALI KELAS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('admin/wali_kelas')?>">Laporan Base Class</a></li>
-                      <li><a href="#">Laporan Bulanan (Coming Soon)</a></li>
+                      <li><a href="<?=base_url('admin/laporan_bulanan')?>">Laporan Bulanan <sub class="text-warning font-weight-bold">(New)</sub></a></li>
                     </ul>
                 <li><a <?=$hidden_wakasis?> <?=$hidden_wakakur?> href="<?=base_url('admin/mapel')?>"><i class="fa fa-edit"></i> GURU BIDANG STUDI</a></li>                 
            
@@ -49,7 +49,7 @@
                   </li>
                   <li><a <?=$hidden_wakakur?>><i class="fa fa-desktop"></i> WAKA KESISWAAN <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?=base_url('admin/wakasis')?>">Pelanggaran & Tindakan</a></li>
+                      <li><a href="<?=base_url('admin/wakasis')?>">Pelanggaran Siswa <sub class="text-warning font-weight-bold">(New)</sub></a></li>
                       <li><a href="<?=base_url('admin/wakasis_info_tambahan')?>">Informasi Tambahan</a></li>
                     </ul>
                   </li>
@@ -79,7 +79,7 @@
                       <img src="<?=base_url()?>/assets22/img/favicon.png" alt=""><?=$nama_user?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profil</a>
+                      <a class="dropdown-item"  href="javascript:;"> Profil <sub class="text-danger font-weight-bold">(New)</sub></a>
                       <a class="dropdown-item"  href="<?=base_url('admin/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>

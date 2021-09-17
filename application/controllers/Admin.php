@@ -440,13 +440,30 @@ class Admin extends CI_Controller {
 
 	public function insert_wakasis()
 	{
+
+		$file_upload              = $_FILES['file_upload']['name'];
+
+		$config['upload_path']          = 'file/pelanggaran/';
+        $config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG|xls|xlsx';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+    
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if (! $this->upload->do_upload('file_upload')) {
+            $this->load->view('error_upload_ereport');
+        }else{
+            $file_upload2=$this->upload->data('file_name');
+        }
 		
+
+
 			$data = array(
 			'id_wakasis' => $this->input->post('id_wakasis'),
-			'nama_siswa' => $this->input->post('nama_siswa'),
-			'tanggal_pelanggaran' => $this->input->post('tanggal_pelanggaran'),
+			'file_upload' => $file_upload2,
 			'deskripsi_pelanggaran' => $this->input->post('deskripsi_pelanggaran'),
-			'tindakan' => $this->input->post('tindakan')
 		);
 
 
@@ -520,7 +537,7 @@ class Admin extends CI_Controller {
 		$file_roster              = $_FILES['file_roster']['name'];
 
 		$config['upload_path']          = 'file/roster/';
-        $config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG';
+        $config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG|xls|xlsx';
         $config['max_size']             = 0;
         $config['max_width']            = 0;
         $config['max_height']           = 0;
@@ -963,7 +980,85 @@ class Admin extends CI_Controller {
 		$this->load->view('baca_infotambahan_wakasis_ereport',$data);
 	}
 
+	public function laporan_bulanan()
+	{
+		$sess_data = $this->session->userdata();
+		$role = $this->session->userdata('role');
+		$id_user = $this->session->userdata('id_user');
 
+			$data['laporan'] = $this->M_ppdb->tampil_data_laporan_bulanan()->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_laporan_bulanan_ereport',$data);
+
+	}
+
+	public function tambah_laporan_bulanan()
+	{
+		$sess_data = $this->session->userdata();
+		$id_user = $this->session->userdata('id_user');
+		$data['kelas_walas'] = $this->M_ppdb->tampil_data_kelas_walas($id_user)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_laporan_bulanan_ereport',$data);
+	}
+
+	
+	public function insert_laporan_bulanan()
+	{
+		
+			$data = array(
+			'id_kelas' => $this->input->post('id_kelas'),
+			'id_walas' => $this->input->post('id_walas'),
+			'periode' => $this->input->post('periode'),
+			'jlh_laki' => $this->input->post('jlh_laki'),
+			'jlh_laki_islam' => $this->input->post('jlh_laki_islam'),
+			'jlh_laki_kristen' => $this->input->post('jlh_laki_kristen'),
+			'jlh_laki_katolik' => $this->input->post('jlh_laki_katolik'),
+			'jlh_laki_budha' => $this->input->post('jlh_laki_budha'),
+			'jlh_laki_hindu' => $this->input->post('jlh_laki_hindu'),
+			'jlh_perempuan' => $this->input->post('jlh_perempuan'),
+			'jlh_perempuan_islam' => $this->input->post('jlh_perempuan_islam'),
+			'jlh_perempuan_kristen' => $this->input->post('jlh_perempuan_kristen'),
+			'jlh_perempuan_katolik' => $this->input->post('jlh_perempuan_katolik'),
+			'jlh_perempuan_budha' => $this->input->post('jlh_perempuan_budha'),
+			'jlh_perempuan_hindu' => $this->input->post('jlh_perempuan_hindu'),
+			'total' => $this->input->post('total'),
+			'jlh_hadir_tpt_waktu' => $this->input->post('jlh_hadir_tpt_waktu'),
+			'persen_hadir_tpt_waktu' => $this->input->post('persen_hadir_tpt_waktu'),
+			'keterangan_hadir_tpt_waktu' => $this->input->post('keterangan_hadir_tpt_waktu'),
+			'jlh_terlambat' => $this->input->post('jlh_terlambat'),
+			'persen_terlambat' => $this->input->post('persen_terlambat'),
+			'keterangan_terlambat' => $this->input->post('keterangan_terlambat'),
+			'jlh_sakit' => $this->input->post('jlh_sakit'),
+			'persen_sakit' => $this->input->post('persen_sakit'),
+			'ket_sakit' => $this->input->post('ket_sakit'),
+			'jlh_izin' => $this->input->post('jlh_izin'),
+			'persen_izin' => $this->input->post('persen_izin'),
+			'ket_izin' => $this->input->post('ket_izin'),
+			'jlh_alpa' => $this->input->post('jlh_alpa'),
+			'persen_alpa' => $this->input->post('persen_alpa'),
+			'ket_alpa' => $this->input->post('ket_alpa'),
+			'kondisi_akademik' => $this->input->post('kondisi_akademik'),
+			'kondisi_psiko' => $this->input->post('kondisi_psiko'),
+			'kondisi_fisik' => $this->input->post('kondisi_fisik')
+		);
+
+
+			$this->M_ppdb->tambah_laporan_bulanan($data,'laporan_bulanan_walas');
+			$this->load->view('berhasil_tambah_laporan_bulanan_ereport');
+	
+			
+	}
+
+	public function baca_laporan_bulanan($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_laporan'] = $this->M_ppdb->baca_laporan_bulanan($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('baca_laporan_bulanan_ereport',$data);
+	}
 
 
 	

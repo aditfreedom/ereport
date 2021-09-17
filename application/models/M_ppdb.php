@@ -433,9 +433,26 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+    public function tampil_data_laporan_bulanan()
+    {
+        return $this->db->query("SELECT * FROM laporan_bulanan_walas 
+                                LEFT JOIN kelas ON laporan_bulanan_walas.id_kelas=kelas.id_kelas 
+                                LEFT JOIN user ON laporan_bulanan_walas.id_walas = user.id_user
+                                ORDER BY laporan_bulanan_walas.id_laporan DESC");
+    }
+
+    public function tambah_laporan_bulanan($data,$table)
+    {
+        $this->db->insert($table, $data);
+    }
 
 
-
+    public function baca_laporan_bulanan($id)
+    {
+        $query = $this->db->query("SELECT * FROM laporan_bulanan_walas 
+                                    LEFT JOIN kelas ON laporan_bulanan_walas.id_kelas = kelas.id_kelas WHERE id_laporan='$id'");
+        return $query;
+    }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
