@@ -1060,6 +1060,115 @@ class Admin extends CI_Controller {
 		$this->load->view('baca_laporan_bulanan_ereport',$data);
 	}
 
+	
+	public function edit_laporan_bulanan($id){
+		$sess_data = $this->session->userdata();
+		$data['edit_laporan'] = $this->M_ppdb->edit_laporan_bulanan($id)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('edit_laporan_bulanan_ereport',$data);
+	}
+
+	public function update_laporan_bulanan(){
+
+		$data = array(
+			'id_kelas' => $this->input->post('id_kelas'),
+			'id_walas' => $this->input->post('id_walas'),
+			'periode' => $this->input->post('periode'),
+			'jlh_laki' => $this->input->post('jlh_laki'),
+			'jlh_laki_islam' => $this->input->post('jlh_laki_islam'),
+			'jlh_laki_kristen' => $this->input->post('jlh_laki_kristen'),
+			'jlh_laki_katolik' => $this->input->post('jlh_laki_katolik'),
+			'jlh_laki_budha' => $this->input->post('jlh_laki_budha'),
+			'jlh_laki_hindu' => $this->input->post('jlh_laki_hindu'),
+			'jlh_perempuan' => $this->input->post('jlh_perempuan'),
+			'jlh_perempuan_islam' => $this->input->post('jlh_perempuan_islam'),
+			'jlh_perempuan_kristen' => $this->input->post('jlh_perempuan_kristen'),
+			'jlh_perempuan_katolik' => $this->input->post('jlh_perempuan_katolik'),
+			'jlh_perempuan_budha' => $this->input->post('jlh_perempuan_budha'),
+			'jlh_perempuan_hindu' => $this->input->post('jlh_perempuan_hindu'),
+			'total' => $this->input->post('total'),
+			'jlh_hadir_tpt_waktu' => $this->input->post('jlh_hadir_tpt_waktu'),
+			'persen_hadir_tpt_waktu' => $this->input->post('persen_hadir_tpt_waktu'),
+			'keterangan_hadir_tpt_waktu' => $this->input->post('keterangan_hadir_tpt_waktu'),
+			'jlh_terlambat' => $this->input->post('jlh_terlambat'),
+			'persen_terlambat' => $this->input->post('persen_terlambat'),
+			'keterangan_terlambat' => $this->input->post('keterangan_terlambat'),
+			'jlh_sakit' => $this->input->post('jlh_sakit'),
+			'persen_sakit' => $this->input->post('persen_sakit'),
+			'ket_sakit' => $this->input->post('ket_sakit'),
+			'jlh_izin' => $this->input->post('jlh_izin'),
+			'persen_izin' => $this->input->post('persen_izin'),
+			'ket_izin' => $this->input->post('ket_izin'),
+			'jlh_alpa' => $this->input->post('jlh_alpa'),
+			'persen_alpa' => $this->input->post('persen_alpa'),
+			'ket_alpa' => $this->input->post('ket_alpa'),
+			'kondisi_akademik' => $this->input->post('kondisi_akademik'),
+			'kondisi_psiko' => $this->input->post('kondisi_psiko'),
+			'kondisi_fisik' => $this->input->post('kondisi_fisik')
+		);
+		
+	
+		$where = array(
+			'id_laporan' => $this->input->post('id_laporan')
+		);
+
+	
+
+		$this->M_ppdb->update_laporan_bulanan($where,$data,'laporan_bulanan_walas');
+		$this->load->view('berhasil_ubah_laporan_bulanan_ereport');
+	}
+
+
+	public function hapus_laporan_bulanan($id){
+		$id_info =    array ('id_laporan' => $id);
+		$this->M_ppdb->hapus_laporan_bulanan($id_info,'laporan_bulanan_walas');
+		redirect(base_url('admin/laporan_bulanan'));
+	}
+
+	public function profil(){
+		$sess_data = $this->session->userdata();
+		$id_user = $this->session->userdata('id_user');
+		$data['profil'] = $this->M_ppdb->profil($id_user)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('profil_ereport',$data);
+	}
+
+	public function update_profil(){
+
+			$data = md5($this->input->post('password'));
+	
+
+			$where = $this->input->post('id_user');
+
+	
+
+		$this->M_ppdb->update_profil($where,$data);
+		$this->load->view('berhasil_ubah_profil_ereport');
+	}
+
+	
+	public function cetak_laporan($id){
+		$sess_data = $this->session->userdata();
+		$data['baca_laporan'] = $this->M_ppdb->baca_laporan_bulanan_cetak($id)->result();
+		// $this->load->view('cetak_laporan',$data);
+		$this->load->library('dompdf_gen');
+		
+				$this->load->view('cetak_laporan',$data);
+				$paper_size = 'F4';
+				$orientation = 'portrait';
+				$html = $this->output->get_output();
+				$this->dompdf->set_paper($paper_size,$orientation);
+
+				$this->dompdf->load_html($html);
+				$this->dompdf->render();
+				$this->dompdf->stream("Laporan Bulanan Wali Kelas.pdf", array('Attachment' =>0));
+	}
+
+
+
+
 
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -79,7 +79,7 @@
                       <img src="<?=base_url()?>/assets22/img/favicon.png" alt=""><?=$nama_user?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profil <sub class="text-danger font-weight-bold">(New)</sub></a>
+                      <a class="dropdown-item"  href="<?=base_url('admin/profil')?>"> Ubah Password <sub class="text-danger font-weight-bold">(New)</sub></a>
                       <a class="dropdown-item"  href="<?=base_url('admin/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>

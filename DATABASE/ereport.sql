@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Sep 2021 pada 06.48
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.2.34
+-- Waktu pembuatan: 17 Sep 2021 pada 19.09
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -874,7 +874,7 @@ CREATE TABLE `laporan_bulanan_walas` (
 --
 
 INSERT INTO `laporan_bulanan_walas` (`id_laporan`, `id_kelas`, `id_walas`, `periode`, `jlh_laki`, `jlh_laki_islam`, `jlh_laki_kristen`, `jlh_laki_katolik`, `jlh_laki_budha`, `jlh_laki_hindu`, `jlh_perempuan`, `jlh_perempuan_islam`, `jlh_perempuan_kristen`, `jlh_perempuan_katolik`, `jlh_perempuan_budha`, `jlh_perempuan_hindu`, `total`, `jlh_hadir_tpt_waktu`, `persen_hadir_tpt_waktu`, `keterangan_hadir_tpt_waktu`, `jlh_terlambat`, `persen_terlambat`, `keterangan_terlambat`, `jlh_sakit`, `persen_sakit`, `ket_sakit`, `jlh_izin`, `persen_izin`, `ket_izin`, `jlh_alpa`, `persen_alpa`, `ket_alpa`, `kondisi_akademik`, `kondisi_psiko`, `kondisi_fisik`) VALUES
-(6, 4, '10', 'Agustus 2021', '5', '5', '0', '0', '0', '0', '7', '7', '0', '0', '0', '0', '12', '12', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.');
+(6, 4, '10', 'Agustus 2021', '5', '5', '0', '0', '0', '0', '7', '7', '0', '0', '0', '0', '12', '12', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', '0', '0', '-', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.', 'Kondisi kelas bersih karena piket sudah berjalan, meja kursi juga diatur dengan baik mengikuti aturan prokes.');
 
 -- --------------------------------------------------------
 
@@ -982,7 +982,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `role`) VALUES
-(2, 'ADITYA AZIZ FIKHRI, S.Tr.Kom', '10186018', 'bc375f11307eac440f9f5f36e5e15404', 0),
+(2, 'ADITYA AZIZ FIKHRI, S.Tr.Kom', '10186018', '0eab68759cc784399fa5c6ba986cdb3d', 0),
 (5, 'KARTIKA HAKIM, S.S., MA', '10151003', '59648ef7321f9a5522d97b3d22f5ae7f', 1),
 (6, 'RIKA JULIANTI, S.E.', '10211005', '5bbe7e2326413d56101eb3fb7987c99a', 5),
 (7, 'ASRITA, S.T, M.A', '10101056', 'e7f1766e2d7688bb9411f06c18248a7c', 4),

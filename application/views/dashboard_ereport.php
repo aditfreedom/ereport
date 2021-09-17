@@ -3,8 +3,9 @@
           <div class="">
 
        <h2>SISTEM INFORMASI PELAPORAN BASE CLASS SMA SUKMA BANGSA BIREUEN</h2>
+       <br><br>
 
-       <img src="<?=base_url('assets22/img/favicon.png')?>" class="mx-auto d-block" width="300px">
+       <img src="<?=base_url('assets22/img/favicon.png')?>" class="mx-auto d-block" width="250px">
   
 
 

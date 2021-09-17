@@ -2,11 +2,15 @@
 <div class="right_col" role="main">
           <div class="">          
     <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>PESAN INFORMASI</b></a><br><br>
-    
+    <?php foreach ($baca_laporan as $data) : ?>
+
+    <p class="align-left">
+        <a href="<?=base_url('admin/cetak_laporan/').$data->id_laporan?>" class="btn btn-success"><i class="fa fa-print"></i> <b>CETAK LAPORAN</b></a>
+    </p>
+
     <div class="row">
     <div class="col">
     <div class="container">
-    <?php foreach ($baca_laporan as $data) : ?>
 
     <div class="row">
     <div class="col">

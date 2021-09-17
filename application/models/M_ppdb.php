@@ -454,6 +454,52 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+    public function edit_laporan_bulanan($id)
+    {
+        $query = $this->db->query("SELECT * FROM laporan_bulanan_walas 
+                                    LEFT JOIN kelas ON laporan_bulanan_walas.id_kelas = kelas.id_kelas WHERE id_laporan='$id'");
+        return $query;
+    }
+
+    public function update_laporan_bulanan($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function hapus_laporan_bulanan($id,$table)
+    {
+        $this->db->delete($table, $id);
+    }
+
+    public function profil($id)
+    {
+        $query = $this->db->query("SELECT * FROM user WHERE id_user='$id'");
+        return $query;
+    }
+
+    public function update_profil($where, $data)
+    {
+        $query = " UPDATE user SET password='$data' WHERE id_user='$where'";
+        return $this->db->query($query);
+    }
+
+
+
+
+    public function baca_laporan_bulanan_cetak($id)
+    {
+        $query = $this->db->query("SELECT * FROM laporan_bulanan_walas 
+                                    LEFT JOIN kelas ON laporan_bulanan_walas.id_kelas = kelas.id_kelas 
+                                    LEFT JOIN user ON laporan_bulanan_walas.id_walas = user.id_user
+                                    WHERE id_laporan='$id'");
+        return $query;
+    }
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //ereport projek///
