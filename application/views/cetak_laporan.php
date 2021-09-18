@@ -153,19 +153,19 @@
                 <br><br>
               <p class="font-weight-bold">c. Kondisi Akademik Kelas</p>
               <div class="form-group">
-                <textarea style="color:black" required name="kondisi_akademik" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark" placeholder="Deskripsi kondisi Akademik Kelas"><?=$data->kondisi_akademik?></textarea>
+                <textarea style="color:black" required name="kondisi_akademik" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark text-justify" placeholder="Deskripsi kondisi Akademik Kelas"><?=$data->kondisi_akademik?></textarea>
                 </div> 
 
                 <br><br>
               <p class="font-weight-bold">d. Kondisi Psiko-sosial Kelas</p>
               <div class="form-group">
-                <textarea style="color:black" required name="kondisi_psiko" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark" placeholder="Deskripsi Psiko-sosial Kelas"><?=$data->kondisi_psiko?></textarea>
+                <textarea style="color:black" required name="kondisi_psiko" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark text-justify" placeholder="Deskripsi Psiko-sosial Kelas"><?=$data->kondisi_psiko?></textarea>
                 </div>  
 
                 <br><br>
                 <p class="font-weight-bold">e. Kondisi Fisik Kelas</p>
                 <div class="form-group">
-                <textarea style="color:black" required name="kondisi_fisik" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark" placeholder="Deskripsi Kondisi Fisik Kelas"><?=$data->kondisi_fisik?></textarea>
+                <textarea style="color:black" required name="kondisi_fisik" cols="30" maxlength="1400"  rows="5" class="form-control border border-dark text-justify" placeholder="Deskripsi Kondisi Fisik Kelas"><?=$data->kondisi_fisik?></textarea>
                 </div> 
 
                 <table style="width: 100%" class="text-center">
