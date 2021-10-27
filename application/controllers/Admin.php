@@ -994,10 +994,23 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function tambah_laporan_bulanan()
+	public function tambah_laporan_bulanan_tanggal()
 	{
 		$sess_data = $this->session->userdata();
 		$id_user = $this->session->userdata('id_user');
+		$data['kelas_walas'] = $this->M_ppdb->tampil_data_kelas_walas($id_user)->result();
+		$this->load->view('template/header',$sess_data);
+		$this->load->view('template/sidebar_admin_sekolah');
+		$this->load->view('tambah_laporan_bulanan_tanggal_ereport',$data);
+	}
+
+	public function tambah_laporan_bulanan()
+	{
+		$tanggal1 = $this->input->post('tanggal1');
+		$tanggal2 = $this->input->post('tanggal2');
+		$sess_data = $this->session->userdata();
+		$id_user = $this->session->userdata('id_user');
+		$data['data_tanggal'] = $this->M_ppdb->tampil_data_tanggal($tanggal1,$tanggal2,$id_user)->result();
 		$data['kelas_walas'] = $this->M_ppdb->tampil_data_kelas_walas($id_user)->result();
 		$this->load->view('template/header',$sess_data);
 		$this->load->view('template/sidebar_admin_sekolah');

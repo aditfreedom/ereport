@@ -497,6 +497,13 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+    public function tampil_data_tanggal($tanggal1,$tanggal2,$id_user)
+    {
+        $query = $this->db->query("SELECT * FROM form_walas 
+        WHERE tanggal >= '$tanggal1' AND tanggal <= '$tanggal2' AND id_walas = '$id_user' ");
+        return $query;
+    }
+
 
 
 

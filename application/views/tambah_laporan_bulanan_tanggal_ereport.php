@@ -1,51 +1,37 @@
 <!-- page content -->
 <div class="right_col" role="main">
-<?php
-  $role=$this->session->userdata('role');
-  $hidden_kepsek="";
-  if ($role=="1") {
-    $hidden_kepsek="hidden";
-  }
-  ?>
-          <div class="">
-          <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>LAPORAN BASE CLASS WALI KELAS</b></a><br>
-          <?php foreach ($tp_aktif as $data) : ?>
-            <h3 class="text-primary mb-3 font-weight-bold">TAHUN PELAJARAN AKTIF : <?=$data->nama_tp?></h3>
-          <?php endforeach; ?>
-            <p align="left" <?=$hidden_kepsek?>>
-              <a class="btn btn-success font-weight-bold" href="<?=base_url('admin/tambah_laporan_bulanan_tanggal')?>">TAMBAH LAPORAN BULANAN</a>
-            </p>
+          <div class="">          
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>PILIH RENTANG WAKTU PELAPORAN</b></a><br><br>
+    <h4>Tahap Ini Bertujuan Untuk Mengambil Rekapan Data Kondisi Akademik Kelas, Kondisi Fisik Kelas dan Kondisi Psiko-Sosial Kelas.</h4>
+    
+    <form action="<?=base_url('admin/tambah_laporan_bulanan')?>" method="post">
+    <div class="row">
+    <div class="col">
+    <div class="container">
+  
+          <hr>
+          <div class="form-group">
+          <label for="">Tanggal Mulai</label>
+          <input type="date" name="tanggal1" class="form-control" required>
+          </div>  
+          <div class="form-group">
+          <label for="">Tanggal Berakhir</label>
+          <input type="date" name="tanggal2" class="form-control" required>
+          </div>        
 
-            <table class="table table-bordered table-stripped" id="example">
-                <thead class="text-center">
-                  <tr>
-                  <th scope="col">NO</th>
-                    <th scope="col">NAMA WALI KELAS</th>
-                    <th scope="col">KELAS</th>
-                    <th scope="col">PERIODE</th>
-                    <th scope="col">AKSI</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $i = 1;
-                  foreach ($laporan as $data) : ?>
-                    <tr class="nomor text-center">
-                    <td scope="row"><?php echo $i; ?></td>
-                      <td scope="row"><b><?php echo $data->nama_user; ?></b></td>
-                      <td scope="row"><?php echo $data->nama_kelas; ?></td>
-                      <td><?php echo $data->periode;  ?></td>
-                     <td><a href="<?=base_url('admin/baca_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-success"><b>BACA REPORT</u></a>
-                         <a <?=$hidden_kepsek?> href="<?=base_url('admin/edit_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-primary"><b>EDIT REPORT</u></a>
-                         <a <?=$hidden_kepsek?> href="<?=base_url('admin/hapus_laporan_bulanan/').$data->id_laporan?>" class="btn btn-sm btn-danger"><b>HAPUS REPORT</u></a>
-                    </td>
-                    </tr>
-                    <?php $i++; ?>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
+        </div>    
+        </div>
+  
+        </div>
+        </div>
 
+        <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">CARI</button><br><br>
+        </form>
+          
+          
           </div>
    
+
                   </div>
                 </div>
               </div>
@@ -102,7 +88,8 @@
 
 
     <script src="<?=base_url('gentelella')?>/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
+        <!-- selectpicker -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
 $(document).ready(function() {
     $('#example').DataTable( {
