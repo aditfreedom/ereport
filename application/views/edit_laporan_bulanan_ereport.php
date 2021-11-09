@@ -13,7 +13,7 @@
     <?php foreach ($edit_laporan as $data) : ?>
         <div class="form-group" hidden>
         <label for=""><b>ID : </b></label>
-        <input type="text" name="id_user" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->id_user?>">
+        <input type="text" name="id_laporan" class="form-control" maxlength="50" placeholder="Judul Informasi" value="<?=$data->id_laporan?>">
         </div>  
         <div class="form-group" hidden>
         <label for=""><b>ID WALAS : </b></label>
@@ -118,15 +118,15 @@
                 <tr>
                   <td class="text-center">1</td>
                   <td>Hadir Tepat Waktu</td>
-                  <td><input  type="number" name="jlh_hadir_tpt_waktu" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_hadir_tpt_waktu?>" required></td>
-                  <td><input  type="number" name="persen_hadir_tpt_waktu" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_hadir_tpt_waktu?>" required></td>
+                  <td><input  type="text" name="jlh_hadir_tpt_waktu" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_hadir_tpt_waktu?>" required></td>
+                  <td><input  type="text" name="persen_hadir_tpt_waktu" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_hadir_tpt_waktu?>" required></td>
                   <td><input  type="text" name="keterangan_hadir_tpt_waktu" class="form-control border border-dark" maxlength="100" value="<?=$data->keterangan_hadir_tpt_waktu?>" required></td>
                 </tr>
                 <tr>
                   <td class="text-center">2</td>
                   <td>Keterlambatan</td>
-                  <td><input  type="number" name="jlh_terlambat" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_terlambat?>" required></td></td>
-                  <td><input  type="number" name="persen_terlambat" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_terlambat?>" required></td></td>
+                  <td><input  type="text" name="jlh_terlambat" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_terlambat?>" required></td></td>
+                  <td><input  type="text" name="persen_terlambat" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_terlambat?>" required></td></td>
                   <td><input  type="text" name="keterangan_terlambat" class="form-control border border-dark" maxlength="100" value="<?=$data->keterangan_terlambat?>" required></td></td>
                 </tr>
                 <tr>
@@ -138,20 +138,20 @@
                 </tr>
                 <tr>
                   <td>a. Sakit</td>
-                  <td><input  type="number" name="jlh_sakit" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_sakit?>" required></td>
-                  <td><input  type="number" name="persen_sakit" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_sakit?>" required></td>
+                  <td><input  type="text" name="jlh_sakit" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_sakit?>" required></td>
+                  <td><input  type="text" name="persen_sakit" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_sakit?>" required></td>
                   <td><input  type="text" name="ket_sakit" class="form-control border border-dark" maxlength="100" value="<?=$data->ket_sakit?>" required></td>
                 </tr>
                 <tr>
                   <td>b. Ijin</td>
-                  <td><input  type="number" name="jlh_izin" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_izin?>" required></td>
-                  <td><input  type="number" name="persen_izin" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_izin?>" required></td>
+                  <td><input  type="text" name="jlh_izin" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_izin?>" required></td>
+                  <td><input  type="text" name="persen_izin" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_izin?>" required></td>
                   <td><input  type="text" name="ket_izin" class="form-control border border-dark" maxlength="100" value="<?=$data->ket_izin?>" required></td>
                 </tr>
                 <tr>
                   <td>c. Alpha</td>
-                  <td><input  type="number" name="jlh_alpa" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_alpa?>" required></td>
-                  <td><input  type="number" name="persen_alpa" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_alpa?>" required></td>
+                  <td><input  type="text" name="jlh_alpa" class="form-control border border-dark" maxlength="5" value="<?=$data->jlh_alpa?>" required></td>
+                  <td><input  type="text" name="persen_alpa" class="form-control border border-dark" maxlength="5" value="<?=$data->persen_alpa?>" required></td>
                   <td><input  type="text" name="ket_alpa" class="form-control border border-dark" maxlength="100" value="<?=$data->ket_alpa?>" required></td>
                 </tr>
               </tbody>

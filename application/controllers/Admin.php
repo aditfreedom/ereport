@@ -444,7 +444,7 @@ class Admin extends CI_Controller {
 		$file_upload              = $_FILES['file_upload']['name'];
 
 		$config['upload_path']          = 'file/pelanggaran/';
-        $config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG|xls|xlsx';
+		$config['allowed_types']        = 'pdf|PDF|JPG|jpg|jpeg|JPEG|png|PNG|xls|xlsx';
         $config['max_size']             = 0;
         $config['max_width']            = 0;
         $config['max_height']           = 0;
@@ -455,14 +455,14 @@ class Admin extends CI_Controller {
         if (! $this->upload->do_upload('file_upload')) {
             $this->load->view('error_upload_ereport');
         }else{
-            $file_upload2=$this->upload->data('file_name');
+            $file_upload=$this->upload->data('file_name');
         }
 		
 
 
 			$data = array(
 			'id_wakasis' => $this->input->post('id_wakasis'),
-			'file_upload' => $file_upload2,
+			'file_upload' => $file_upload,
 			'deskripsi_pelanggaran' => $this->input->post('deskripsi_pelanggaran'),
 		);
 
@@ -986,11 +986,21 @@ class Admin extends CI_Controller {
 		$role = $this->session->userdata('role');
 		$id_user = $this->session->userdata('id_user');
 
-			$data['laporan'] = $this->M_ppdb->tampil_data_laporan_bulanan()->result();
+            if($role==3){
+            $data['laporan'] = $this->M_ppdb->tampil_data_laporan_bulanan_walas($id_user)->result();
 			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
 			$this->load->view('template/header',$sess_data);
 			$this->load->view('template/sidebar_admin_sekolah');
 			$this->load->view('form_laporan_bulanan_ereport',$data);
+            } else{
+            $data['laporan'] = $this->M_ppdb->tampil_data_laporan_bulanan()->result();
+			$data['tp_aktif'] = $this->M_ppdb->tampil_data_tp_aktif()->result();
+			$this->load->view('template/header',$sess_data);
+			$this->load->view('template/sidebar_admin_sekolah');
+			$this->load->view('form_laporan_bulanan_ereport',$data);
+            }
+            
+
 
 	}
 
