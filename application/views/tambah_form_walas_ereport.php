@@ -69,15 +69,15 @@
 
           <div class="form-group">
           <label for=""><b>KONDISI AKADEMIK KELAS : </b></label>
-          <textarea required name="deskripsi_base_class" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="KONDISI AKADEMIK KELAS"></textarea>
+          <textarea required name="deskripsi_base_class" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI AKADEMIK KELAS"></textarea>
           </div>  
           <div class="form-group">
           <label for=""><b>KONDISI PSIKO-SOSIAL KELAS :  </b></label>
-          <textarea required name="permasalahan_kelas" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="KONDISI PSIKO-SOSIAL KELAS"></textarea>
+          <textarea required name="permasalahan_kelas" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI PSIKO-SOSIAL KELAS"></textarea>
           </div>  
           <div class="form-group">
           <label for=""><b>KONDISI FISIK KELAS : </b></label>
-          <textarea required name="follow_up" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="KONDISI FISIK KELAS"></textarea>
+          <textarea required name="follow_up" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI FISIK KELAS"></textarea>
           </div> 
 
         </div>  

@@ -163,7 +163,7 @@
           <hr>
 
           <div class="form-group">
-          <textarea  required name="kondisi_akademik" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi kondisi Akademik Kelas"><?=$data->kondisi_akademik?></textarea>
+          <textarea  required name="kondisi_akademik" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Deskripsi kondisi Akademik Kelas"><?=$data->kondisi_akademik?></textarea>
           </div>  
 
           <hr>
@@ -171,7 +171,7 @@
           <p>Jelaskan kondisi psikososial kelas secara keseluruhan: bagaimana hubungan guru dan siswa, antar siswa, kekompakan kelas, masalah dengan orangtua ataupun masalah penting lain yang muncul serta penangann yang dilakukan-jika ada</p>
           <hr>
           <div class="form-group">
-          <textarea  required name="kondisi_psiko" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Psiko-sosial Kelas"><?=$data->kondisi_psiko?></textarea>
+          <textarea  required name="kondisi_psiko" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Deskripsi Psiko-sosial Kelas"><?=$data->kondisi_psiko?></textarea>
           </div>  
 
           <hr>
@@ -179,7 +179,7 @@
           <p>Jelaskan kondisi fisik kelas: kebersihan, kerapian, keindahan dalam dan depan/taman, kelengkapan alat kebersihan, kelengkapan perangkat kelas, kondisi dan kelengkapan mobiler kelas</p>
           <hr>
           <div class="form-group">
-          <textarea  required name="kondisi_fisik" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Kondisi Fisik Kelas"><?=$data->kondisi_fisik?></textarea>
+          <textarea  required name="kondisi_fisik" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Deskripsi Kondisi Fisik Kelas"><?=$data->kondisi_fisik?></textarea>
           </div> 
 
         

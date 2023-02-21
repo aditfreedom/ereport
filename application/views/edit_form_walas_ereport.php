@@ -74,15 +74,15 @@
 
           <div class="form-group">
           <label for=""><b>DESKRIPSI BASE CLASS : </b></label>
-          <textarea  required name="deskripsi_base_class" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Deskripsi Base Class"><?=$data->deskripsi_base_class?></textarea>
+          <textarea  required name="deskripsi_base_class" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Deskripsi Base Class"><?=$data->deskripsi_base_class?></textarea>
           </div>  
           <div class="form-group">
           <label for=""><b>PERMASALAHAN KELAS : </b></label>
-          <textarea  required name="permasalahan_kelas" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Permasalahan Kelas"><?=$data->permasalahan_kelas?></textarea>
+          <textarea  required name="permasalahan_kelas" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Permasalahan Kelas"><?=$data->permasalahan_kelas?></textarea>
           </div>  
           <div class="form-group">
           <label for=""><b>FOLLOW UP : </b></label>
-          <textarea  required name="follow_up" cols="30" maxlength="1400"  rows="5" class="form-control" placeholder="Follow Up"><?=$data->follow_up?></textarea>
+          <textarea  required name="follow_up" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Follow Up"><?=$data->follow_up?></textarea>
           </div> 
 
           <button type="submit" id="btn" class="btn btn-primary form-control font-weight-bold">UBAH DATA LAPORAN</button><br><br>
