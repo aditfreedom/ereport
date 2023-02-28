@@ -68,16 +68,16 @@
           <hr>
 
           <div class="form-group">
-          <label for=""><b>KONDISI AKADEMIK KELAS : </b></label>
-          <textarea required name="deskripsi_base_class" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI AKADEMIK KELAS"></textarea>
+          <label for=""><b>DESKRIPSI KEGIATAN : </b></label>
+          <textarea required name="deskripsi_base_class" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Deskripsi Base Class"></textarea>
           </div>  
           <div class="form-group">
-          <label for=""><b>KONDISI PSIKO-SOSIAL KELAS :  </b></label>
-          <textarea required name="permasalahan_kelas" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI PSIKO-SOSIAL KELAS"></textarea>
+          <label for=""><b>DINAMIKA KEGIATAN :  </b></label>
+          <textarea required name="permasalahan_kelas" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Dinamika Kegiatan"></textarea>
           </div>  
           <div class="form-group">
-          <label for=""><b>KONDISI FISIK KELAS : </b></label>
-          <textarea required name="follow_up" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="KONDISI FISIK KELAS"></textarea>
+          <label for=""><b>HASIL BELAJAR GURU : </b></label>
+          <textarea required name="follow_up" cols="30" maxlength="5000"  rows="5" class="form-control" placeholder="Hasil Belajar Guru"></textarea>
           </div> 
 
         </div>  
